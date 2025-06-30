@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ action }} Catalogue</title>
-    <!-- This line is correct -->
+  
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
@@ -45,7 +45,7 @@
     </form>
 </div>
 
-<!-- This is how we pass data from Flask to JavaScript -->
+
 <script>
     window.action = "{{ action }}";
     window.catalogueData = {{ catalogue|tojson|safe if catalogue else 'null' }};

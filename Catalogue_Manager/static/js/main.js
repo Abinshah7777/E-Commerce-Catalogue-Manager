@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const action = window.action || null;
     const catalogue = window.catalogueData || null;
 
-    // Prefill form in update mode
     if (action === 'Update' && catalogue) {
         document.getElementById('catalogue_id').value = catalogue.catalogue_id;
         document.getElementById('catalogue_name').value = catalogue.catalogue_name;
@@ -14,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('catalogue_end').value = catalogue.catalogue_end;
     }
 
-    // Handle form submit for Create/Update
     if (form) {
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -50,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Load all catalogues on the index page
+
  const indexContainer = document.getElementById('catalogueList');
     if (indexContainer) {
         fetch('/api/catalogues')
@@ -83,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// Delete handler
+
 function deleteCatalogue(id) {
     if (!confirm("Are you sure you want to delete this catalogue?")) return;
     fetch(`/api/catalogues/${id}`, { method: 'DELETE' })

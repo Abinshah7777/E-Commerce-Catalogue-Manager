@@ -72,7 +72,7 @@ h2 {
     padding: 10px;
     border: 1px solid #ced4da;
     border-radius: 5px;
-    box-sizing: border-box; /* Important */
+    box-sizing: border-box;
     font-size: 16px;
 }
 #catalogueForm input[readonly] {

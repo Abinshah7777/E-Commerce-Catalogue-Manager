@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template  # <-- added render_template
+from flask import Flask, request, jsonify, render_template 
 from service.catalogue_service import CatalogueService
 from dto.catalogue_dto import Catalogue
 from exceptions.exceptions import CatalogueNotFoundError, InvalidCatalogueInputError
@@ -6,19 +6,16 @@ from exceptions.exceptions import CatalogueNotFoundError, InvalidCatalogueInputE
 app = Flask(__name__)
 service = CatalogueService()
 
-# ✅ Serve index.html at root path
 @app.route('/')
 def index():
     return render_template('index.html')
-
-# Add these new routes to your app.py file
 
 @app.route('/create')
 def create_form():
     """Serves the form for creating a new catalogue."""
     return render_template('form.html', action='Create', catalogue=None)
 
-# Find this function in your app.py
+
 
 @app.route('/update/<int:id>')
 def update_form(id):
@@ -44,16 +41,14 @@ def get_catalogue(id):
         return jsonify({'error': str(e)}), 404
     
 
-# Add this new route to your app.py file
-
 @app.route('/view/<int:id>')
 def view_catalogue(id):
     """Serves a read-only page showing the details of a single catalogue."""
     try:
-        # Get the catalogue object from the service
+     
         catalogue_object = service.get_catalogue_by_id(id)
 
-        # Convert it to a dictionary to pass to the template
+      
         catalogue_dict = catalogue_object.to_dict()
 
         return render_template('view.html', catalogue=catalogue_dict)
