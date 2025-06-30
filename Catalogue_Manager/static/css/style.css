@@ -1,0 +1,94 @@
+/* General Body and Container Styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    padding: 30px;
+    margin: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* List Page Styles */
+.catalogue {
+    padding: 15px 0;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.catalogue:last-child {
+    border-bottom: none;
+}
+
+/* Button Styles (for all pages) */
+.btn {
+    padding: 8px 12px;
+    margin-left: 5px;
+    text-decoration: none;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: opacity 0.2s ease-in-out;
+}
+.btn:hover {
+    opacity: 0.85;
+}
+.btn-info { background: #17a2b8; }
+.btn-warning { background: #ffc107; }
+.btn-danger { background: #dc3545; }
+.btn-primary { background: #007bff; margin-bottom: 15px; display: inline-block; }
+
+/* Form Styles (for form.html) */
+#catalogueForm div {
+    margin-bottom: 15px;
+}
+#catalogueForm label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+#catalogueForm input[type="text"],
+#catalogueForm input[type="number"],
+#catalogueForm input[type="date"],
+#catalogueForm select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    box-sizing: border-box; /* Important */
+    font-size: 16px;
+}
+#catalogueForm input[readonly] {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+
+/* View Page Styles (for view.html) */
+.details-grid {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 10px 20px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+.details-grid dt {
+    font-weight: bold;
+    color: #555;
+}

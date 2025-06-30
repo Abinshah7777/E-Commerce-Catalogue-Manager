@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Catalogue Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h2>All Catalogues</h2>
+
+    <div id="msg"></div>
+
+    <a href="/create" class="btn btn-primary">Add New Catalogue</a>
+
+    <div id="catalogueList">
+        <!-- Catalogue entries will be added by JavaScript -->
+    </div>
+</div>
+
+<script>
+    const action = "List";
+</script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>

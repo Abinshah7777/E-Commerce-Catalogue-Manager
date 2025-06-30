@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ action }} Catalogue</title>
+    <!-- This line is correct -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h2>{{ action }} Catalogue</h2>
+    <div id="msg"></div>
+
+    <form id="catalogueForm">
+        <div>
+            <label for="catalogue_id">ID:</label>
+            <input type="number" id="catalogue_id" name="catalogue_id" required {% if action == 'Update' %}readonly{% endif %}>
+        </div>
+        <div>
+            <label for="catalogue_name">Name:</label>
+            <input type="text" id="catalogue_name" name="catalogue_name" required>
+        </div>
+        <div>
+            <label for="catalogue_version">Version:</label>
+            <input type="text" id="catalogue_version" name="catalogue_version" required>
+        </div>
+        <div>
+            <label for="is_cat_active">Is Active:</label>
+            <select id="is_cat_active" name="is_cat_active">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        </div>
+        <div>
+            <label for="catalogue_start">Start Date:</label>
+            <input type="date" id="catalogue_start" name="catalogue_start" required>
+        </div>
+        <div>
+            <label for="catalogue_end">End Date:</label>
+            <input type="date" id="catalogue_end" name="catalogue_end" required>
+        </div>
+        <button type="submit" class="btn btn-primary">{{ action }}</button>
+        <a href="/" class="btn btn-info">Back to List</a>
+    </form>
+</div>
+
+<!-- This is how we pass data from Flask to JavaScript -->
+<script>
+    window.action = "{{ action }}";
+    window.catalogueData = {{ catalogue|tojson|safe if catalogue else 'null' }};
+</script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>
