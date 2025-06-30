@@ -18,25 +18,35 @@ This is a simple web application for managing e-commerce catalogues. It allows u
 - **Data Handling:** In-memory storage (no database)
 - **Version Control:** Git & GitHub
 
-## Project Structure
+## 📁 Project Structure
 
+```
 E-Commerce-Catalogue-Manager/
-├── app.py # Main Flask application
+│
+├── app.py                  # Main Flask application
+│
 ├── templates/
-│ └── index.html # Frontend HTML interface
+│   └── index.html          # Frontend HTML interface
+│
 ├── static/
-│ └── js/
-│ └── main.js # JavaScript for Fetch API interaction
+│   └── js/
+│       └── main.js         # JavaScript for Fetch API interaction
+│
 ├── dto/
-│ └── catalogue_dto.py # Catalogue class definition (DTO)
+│   └── catalogue_dto.py    # Catalogue class definition (DTO)
+│
 ├── service/
-│ └── catalogue_service.py # Business logic for catalogue management
+│   └── catalogue_service.py # Business logic for catalogue management
+│
 ├── exceptions/
-│ └── exceptions.py # Custom error classes
+│   └── exceptions.py       # Custom error classes
+│
 ├── util/
-│ └── validators.py # Input validation functions
-├── requirements.txt # Python package requirements
-└── README.md # Project documentation
+│   └── validators.py       # Input validation functions
+│
+├── requirements.txt        # Python package requirements
+└── README.md               # Project documentation
+```
 
 
 ## Setup Instructions
