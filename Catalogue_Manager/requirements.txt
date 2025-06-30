@@ -5,7 +5,9 @@ itsdangerous==2.1.2
 MarkupSafe==2.1.3
 
 # MySQL database connector
+
 mysql-connector-python==8.3.0
 
 # For date parsing and validation
+
 python-dateutil==2.8.2
