@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Catalogue Dashboard</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<head>
+  <meta charset="UTF-8">
+  <title>Catalogue Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
 
 <div class="container">
-    <h2>All Catalogues</h2>
+  <h1 class="title">📦 Catalogue Manager </h1>
 
-    <div id="msg"></div>
+  
+  <div id="msg" class="notification"></div>
 
-    <a href="/create" class="btn btn-primary">Add New Catalogue</a>
+  <nav class="navbar">
+    <button class="add" onclick="showCreateForm()">➕ Add New Catalogue</button>
+    <button class="view" onclick="fetchAllCatalogues()">📋 Get All Catalogues</button>
+    <button class="viewid" onclick="promptViewById()">🔍 Get Catalogue by ID</button>
+    <button id="homeBtn" class="home-btn" onclick="showHomeOptions()" style="display: none;">🏠 Home</button>
+    <button onclick="location.href='/logout'" class="logout-btn">🚪 Logout</button>
+  </nav>
 
-    <div id="catalogueList">
-      
-    </div>
+  <div id="catalogueList" class="catalogue-output"></div>
 </div>
 
-<script>
-    const action = "List";
-</script>
-<script src="{{ url_for('static', filename='js/main.js') }}"></script>
 
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>

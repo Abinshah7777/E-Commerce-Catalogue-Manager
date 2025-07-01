@@ -9,3 +9,12 @@ class InvalidCatalogueInputError(Exception):
 class DatabaseConnectionError(Exception):
     """Raised when the database connection fails."""
     pass
+
+class AuthenticationError(Exception):
+    """Raised when authentication fails."""
+    pass
+
+class InvalidCredentialsError(Exception):
+    """Raised when login credentials are invalid."""
+    pass
+
