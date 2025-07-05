@@ -18,3 +18,6 @@ class InvalidCredentialsError(Exception):
     """Raised when login credentials are invalid."""
     pass
 
+class CatalogueAlreadyExistsError(Exception):
+    """Raised when trying to create a catalogue that already exists."""
+    pass

@@ -1,0 +1,89 @@
+2025-07-05 15:31:46,624 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.4:5000
+2025-07-05 15:31:46,625 [INFO] [33mPress CTRL+C to quit[0m
+2025-07-05 15:31:46,626 [INFO]  * Restarting with stat
+2025-07-05 15:31:46,850 [WARNING]  * Debugger is active!
+2025-07-05 15:31:46,853 [INFO]  * Debugger PIN: 918-996-638
+2025-07-05 15:31:54,529 [INFO] 192.168.1.4 - - [05/Jul/2025 15:31:54] "[32mGET / HTTP/1.1[0m" 302 -
+2025-07-05 15:31:54,553 [INFO] 192.168.1.4 - - [05/Jul/2025 15:31:54] "GET /login HTTP/1.1" 200 -
+2025-07-05 15:31:54,630 [INFO] 192.168.1.4 - - [05/Jul/2025 15:31:54] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-05 15:31:54,950 [INFO] 192.168.1.4 - - [05/Jul/2025 15:31:54] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-05 15:32:00,349 [INFO] User "admin" logged in successfully.
+2025-07-05 15:32:00,350 [INFO] 192.168.1.4 - - [05/Jul/2025 15:32:00] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-05 15:32:00,357 [INFO] 192.168.1.4 - - [05/Jul/2025 15:32:00] "GET / HTTP/1.1" 200 -
+2025-07-05 15:32:00,395 [INFO] 192.168.1.4 - - [05/Jul/2025 15:32:00] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-05 15:32:00,399 [INFO] 192.168.1.4 - - [05/Jul/2025 15:32:00] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-07-05 15:32:00,466 [INFO] User "admin" fetched all catalogues.
+2025-07-05 15:32:00,480 [INFO] 192.168.1.4 - - [05/Jul/2025 15:32:00] "GET /api/catalogues HTTP/1.1" 200 -
+2025-07-05 15:32:17,514 [INFO] User "admin" created catalogue with ID 333.
+2025-07-05 15:32:17,515 [INFO] 192.168.1.4 - - [05/Jul/2025 15:32:17] "[35m[1mPOST /api/catalogues HTTP/1.1[0m" 201 -
+2025-07-05 15:32:17,521 [INFO] User "admin" fetched all catalogues.
+2025-07-05 15:32:17,532 [INFO] 192.168.1.4 - - [05/Jul/2025 15:32:17] "GET /api/catalogues HTTP/1.1" 200 -
+2025-07-05 15:32:56,567 [ERROR] Unexpected error during catalogue creation by user "admin": 1062 (23000): Duplicate entry '1' for key 'catalogue.PRIMARY'
+Traceback (most recent call last):
+  File "C:\Users\hp\AppData\Local\Programs\Python\Python313\Lib\site-packages\mysql\connector\connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+    ~~~~~~~~~~~~~~~~~~^
+        query,
+        ^^^^^^
+    ...<3 lines>...
+        query_attrs=self.query_attrs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+_mysql_connector.MySQLInterfaceError: Duplicate entry '1' for key 'catalogue.PRIMARY'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\hp\Desktop\E-Commerce website manager\Catalogue_Manager\app.py", line 81, in create_catalogue
+    service.create_catalogue(catalogue)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "c:\Users\hp\Desktop\E-Commerce website manager\Catalogue_Manager\service\catalogue_service.py", line 23, in create_catalogue
+    cursor.execute(query, data)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\hp\AppData\Local\Programs\Python\Python313\Lib\site-packages\mysql\connector\cursor_cext.py", line 356, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        raw_as_string=self._raw_as_string,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\hp\AppData\Local\Programs\Python\Python313\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\hp\AppData\Local\Programs\Python\Python313\Lib\site-packages\mysql\connector\connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.IntegrityError: 1062 (23000): Duplicate entry '1' for key 'catalogue.PRIMARY'
+2025-07-05 15:32:56,575 [INFO] 192.168.1.4 - - [05/Jul/2025 15:32:56] "[35m[1mPOST /api/catalogues HTTP/1.1[0m" 500 -
+2025-07-05 15:33:08,809 [INFO] User "admin" created catalogue with ID 111.
+2025-07-05 15:33:08,810 [INFO] 192.168.1.4 - - [05/Jul/2025 15:33:08] "[35m[1mPOST /api/catalogues HTTP/1.1[0m" 201 -
+2025-07-05 15:33:08,815 [INFO] User "admin" fetched all catalogues.
+2025-07-05 15:33:08,828 [INFO] 192.168.1.4 - - [05/Jul/2025 15:33:08] "GET /api/catalogues HTTP/1.1" 200 -
+2025-07-05 15:33:17,622 [INFO] User "admin" deleted catalogue ID 333.
+2025-07-05 15:33:17,622 [INFO] 192.168.1.4 - - [05/Jul/2025 15:33:17] "DELETE /api/catalogues/333 HTTP/1.1" 200 -
+2025-07-05 15:33:17,915 [INFO] User "admin" fetched all catalogues.
+2025-07-05 15:33:17,928 [INFO] 192.168.1.4 - - [05/Jul/2025 15:33:17] "GET /api/catalogues HTTP/1.1" 200 -
+2025-07-05 15:42:55,270 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.4:5000
+2025-07-05 15:42:55,271 [INFO] [33mPress CTRL+C to quit[0m
+2025-07-05 15:42:55,272 [INFO]  * Restarting with stat
+2025-07-05 15:42:55,522 [WARNING]  * Debugger is active!
+2025-07-05 15:42:55,526 [INFO]  * Debugger PIN: 918-996-638
+2025-07-05 15:42:57,509 [INFO] 192.168.1.4 - - [05/Jul/2025 15:42:57] "GET / HTTP/1.1" 200 -
+2025-07-05 15:42:57,596 [INFO] 192.168.1.4 - - [05/Jul/2025 15:42:57] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-05 15:42:57,597 [INFO] 192.168.1.4 - - [05/Jul/2025 15:42:57] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-07-05 15:42:57,750 [INFO] User "admin" fetched all catalogues.
+2025-07-05 15:42:57,824 [INFO] 192.168.1.4 - - [05/Jul/2025 15:42:57] "GET /api/catalogues HTTP/1.1" 200 -
+2025-07-05 15:43:14,322 [WARNING] User "admin" attempted to create a duplicate catalogue ID 1.
+2025-07-05 15:43:14,322 [INFO] 192.168.1.4 - - [05/Jul/2025 15:43:14] "[31m[1mPOST /api/catalogues HTTP/1.1[0m" 409 -
+2025-07-05 15:43:21,124 [INFO] User "admin" fetched all catalogues.
+2025-07-05 15:43:21,134 [INFO] 192.168.1.4 - - [05/Jul/2025 15:43:21] "GET /api/catalogues HTTP/1.1" 200 -

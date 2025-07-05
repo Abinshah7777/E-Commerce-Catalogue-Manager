@@ -1,29 +1,41 @@
 from dto.catalogue_dto import Catalogue
 from util.db_get_connection import get_connection
-from exceptions.exceptions import CatalogueNotFoundError
+from exceptions.exceptions import CatalogueNotFoundError, CatalogueAlreadyExistsError
+import mysql.connector
 
 class CatalogueService:
 
     def create_catalogue(self, catalogue: Catalogue):
-        conn = get_connection()
-        cursor = conn.cursor()
-        query = """
-            INSERT INTO catalogue (catalogue_id, catalogue_name, catalogue_version, 
-                                   is_cat_active, catalogue_start, catalogue_end)
-            VALUES (%s, %s, %s, %s, %s, %s)
-        """
-        data = (
-            catalogue.catalogue_id,
-            catalogue.catalogue_name,
-            catalogue.catalogue_version,
-            catalogue.is_cat_active,
-            catalogue.catalogue_start,
-            catalogue.catalogue_end
-        )
-        cursor.execute(query, data)
-        conn.commit()
-        cursor.close()
-        conn.close()
+        conn = None
+        cursor = None
+        try:
+            conn = get_connection()
+            cursor = conn.cursor()
+            query = """
+                INSERT INTO catalogue (catalogue_id, catalogue_name, catalogue_version, 
+                                       is_cat_active, catalogue_start, catalogue_end)
+                VALUES (%s, %s, %s, %s, %s, %s)
+            """
+            data = (
+                catalogue.catalogue_id,
+                catalogue.catalogue_name,
+                catalogue.catalogue_version,
+                catalogue.is_cat_active,
+                catalogue.catalogue_start,
+                catalogue.catalogue_end
+            )
+            cursor.execute(query, data)
+            conn.commit()
+        except mysql.connector.IntegrityError as e:
+            if e.errno == 1062:
+                raise CatalogueAlreadyExistsError(f"Catalogue with ID {catalogue.catalogue_id} already exists.")
+            else:
+                raise
+        finally:
+            if cursor:
+                cursor.close()
+            if conn:
+                conn.close()
 
     def get_catalogue_by_id(self, catalogue_id):
         conn = get_connection()

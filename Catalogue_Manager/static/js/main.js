@@ -1,14 +1,8 @@
-function showHomeOptions() {
-    const container = document.getElementById('catalogueList');
-    container.innerHTML = `
-        <p style="margin-top: 2rem;">Use the options above to manage catalogues.</p>
-    `;
-    document.getElementById('homeBtn').style.display = 'none';  // Hide Home on home page
-}
+document.addEventListener('DOMContentLoaded', () => {
+    fetchAllCatalogues(); // Load all catalogues when the page loads
+});
 
 function showCreateForm() {
-    document.getElementById('homeBtn').style.display = 'inline-block';
-
     const formHtml = `
         <h3>Add New Catalogue</h3>
         <form id="catalogueForm">
@@ -25,6 +19,7 @@ function showCreateForm() {
         </form>
         <div id="msg" class="message-box"></div>
     `;
+
     document.getElementById('catalogueList').innerHTML = formHtml;
 
     const form = document.getElementById('catalogueForm');
@@ -40,37 +35,138 @@ function showCreateForm() {
             catalogue_end: document.getElementById('catalogue_end').value
         };
 
+        const msgBox = document.getElementById('msg');
+
         try {
             const res = await fetch('/api/catalogues', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
             });
-            const result = await res.json();
-            const msgBox = document.getElementById('msg');
-            msgBox.innerText = result.message || result.error;
-            msgBox.style.color = result.success ? 'green' : 'red';
-            if (result.success) form.reset();
+
+            let result;
+            try {
+                result = await res.json();
+            } catch {
+                msgBox.innerText = 'Invalid response from server.';
+                msgBox.style.color = 'red';
+                return;
+            }
+
+            if (res.status === 201 || result.success) {
+                msgBox.innerText = result.message || 'Catalogue created successfully.';
+                msgBox.style.color = 'green';
+                form.reset();
+                fetchAllCatalogues();
+            } else {
+                msgBox.innerText = result.error || 'Something went wrong.';
+                msgBox.style.color = 'red';
+            }
+
         } catch (err) {
-            const msgBox = document.getElementById('msg');
-            msgBox.innerText = 'Something went wrong.';
+            msgBox.innerText = 'Something went wrong while connecting to the server.';
             msgBox.style.color = 'red';
+            console.error(err);
         }
+
+        setTimeout(() => {
+            msgBox.innerText = '';
+        }, 4000);
     });
 }
 
-function fetchAllCatalogues() {
-    document.getElementById('homeBtn').style.display = 'inline-block';
 
+let allCataloguesData = [];
+let currentPage = 1;
+const itemsPerPage = 5;
+
+function fetchAllCatalogues() {
     fetch('/api/catalogues')
         .then(res => res.json())
         .then(response => {
             const container = document.getElementById('catalogueList');
             container.innerHTML = '';
+
             if (!response.success || response.data.length === 0) {
                 container.innerHTML = '<p>No catalogues found.</p>';
-            } else {
-                response.data.forEach(cat => {
+                return;
+            }
+
+            allCataloguesData = response.data;
+
+            const resultWrapper = document.createElement('div');
+            resultWrapper.id = 'resultWrapper';
+            container.appendChild(resultWrapper);
+
+            const paginationWrapper = document.createElement('div');
+            paginationWrapper.id = 'paginationWrapper';
+            paginationWrapper.className = 'pagination-controls';
+            container.appendChild(paginationWrapper);
+
+            function getFilteredData() {
+                const query = document.getElementById('searchInput').value.toLowerCase();
+                const filter = document.getElementById('statusFilter').value;
+
+                let filtered = allCataloguesData;
+
+                if (filter === 'active') {
+                    filtered = filtered.filter(c => c.is_cat_active);
+                } else if (filter === 'inactive') {
+                    filtered = filtered.filter(c => !c.is_cat_active);
+                }
+
+                if (query) {
+                    filtered = filtered.filter(cat =>
+                        cat.catalogue_name.toLowerCase().includes(query) ||
+                        cat.catalogue_id.toString().includes(query)
+                    );
+                }
+
+                // Sort by ID ascending or descending
+                const sortOrder = document.getElementById('sortOrder').value;
+                if (sortOrder === 'asc') {
+                    filtered.sort((a, b) => a.catalogue_id - b.catalogue_id);
+                } else {
+                    filtered.sort((a, b) => b.catalogue_id - a.catalogue_id);
+                }
+
+                return filtered;
+            }
+
+            function renderPagination(filtered) {
+                const totalPages = Math.ceil(filtered.length / itemsPerPage);
+                const pagination = document.getElementById('paginationWrapper');
+                pagination.innerHTML = '';
+
+                const prevBtn = document.createElement('button');
+                prevBtn.textContent = '⏮ Prev';
+                prevBtn.disabled = currentPage === 1;
+                prevBtn.onclick = () => {
+                    currentPage--;
+                    renderCatalogues(getFilteredData());
+                };
+
+                const nextBtn = document.createElement('button');
+                nextBtn.textContent = 'Next ⏭';
+                nextBtn.disabled = currentPage === totalPages;
+                nextBtn.onclick = () => {
+                    currentPage++;
+                    renderCatalogues(getFilteredData());
+                };
+
+                pagination.appendChild(prevBtn);
+                pagination.appendChild(document.createTextNode(` Page ${currentPage} of ${totalPages} `));
+                pagination.appendChild(nextBtn);
+            }
+
+            function renderCatalogues(data) {
+                const wrapper = document.getElementById('resultWrapper');
+                wrapper.innerHTML = '';
+
+                const start = (currentPage - 1) * itemsPerPage;
+                const paginatedData = data.slice(start, start + itemsPerPage);
+
+                paginatedData.forEach(cat => {
                     const div = document.createElement('div');
                     div.className = 'catalogue';
                     div.innerHTML = `
@@ -81,9 +177,28 @@ function fetchAllCatalogues() {
                         <button onclick="deleteCatalogue(${cat.catalogue_id})">🗑️ Delete</button>
                         <hr>
                     `;
-                    container.appendChild(div);
+                    wrapper.appendChild(div);
                 });
+
+                renderPagination(data);
             }
+
+            document.getElementById('searchInput').addEventListener('input', () => {
+                currentPage = 1;
+                renderCatalogues(getFilteredData());
+            });
+
+            document.getElementById('statusFilter').addEventListener('change', () => {
+                currentPage = 1;
+                renderCatalogues(getFilteredData());
+            });
+
+            document.getElementById('sortOrder').addEventListener('change', () => {
+                currentPage = 1;
+                renderCatalogues(getFilteredData());
+            });
+
+            renderCatalogues(getFilteredData());
         })
         .catch(err => {
             document.getElementById('catalogueList').innerHTML = '<p>Error loading catalogues.</p>';
@@ -92,12 +207,7 @@ function fetchAllCatalogues() {
 
 function promptViewById() {
     const id = prompt("Enter Catalogue ID to view:");
-    if (!id) {
-        document.getElementById('homeBtn').style.display = 'none';  // Hide if cancelled
-        return;
-    }
-
-    document.getElementById('homeBtn').style.display = 'inline-block';
+    if (!id) return;
 
     fetch(`/api/catalogues/${id}`)
         .then(res => res.json())
@@ -121,8 +231,6 @@ function promptViewById() {
 }
 
 function editCatalogue(id) {
-    document.getElementById('homeBtn').style.display = 'inline-block';
-
     fetch(`/api/catalogues/${id}`)
         .then(res => res.json())
         .then(response => {
@@ -169,15 +277,18 @@ function editCatalogue(id) {
                 });
                 const result = await res.json();
                 const msgBox = document.getElementById('msg');
-                msgBox.innerText = result.message || result.error;
+                msgBox.innerText = result.message || result.error || "Unknown response.";
                 msgBox.style.color = result.success ? 'green' : 'red';
+
+                setTimeout(() => {
+                    msgBox.innerText = '';
+                }, 4000);
             });
+
         });
 }
 
 function deleteCatalogue(id) {
-    document.getElementById('homeBtn').style.display = 'inline-block';
-
     if (!confirm(`Are you sure you want to delete catalogue ID ${id}?`)) return;
 
     fetch(`/api/catalogues/${id}`, {

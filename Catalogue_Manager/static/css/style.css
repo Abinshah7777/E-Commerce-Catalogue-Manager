@@ -4,7 +4,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f2f4f8;
+  background: linear-gradient(135deg, #dfe9f3 0%, #ffffff 100%);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
@@ -15,167 +15,209 @@ body {
 .container {
   max-width: 900px;
   width: 95%;
-  margin: 0 auto;
+  margin: 20px auto;
   background-color: #ffffff;
   padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 /* Header */
 h1, h2 {
-  color: #2b2b2b;
+  color: #1a1a1a;
   margin-bottom: 25px;
 }
 
-/* Horizontal Navbar - Oval, Big, Colorful Buttons */
-.navbar {
+/* Top-right Home + Logout */
+.navbar-top-right {
+  position: absolute;
+  top: 20px;
+  right: 20px;
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 18px;
-  margin-bottom: 35px;
+  gap: 12px;
+  align-items: center;
+  z-index: 10;
 }
 
-.navbar button {
-  font-size: 18px;
-  font-weight: 600;
-  padding: 18px 32px;
-  border: none;
-  border-radius: 50px; /* Fully rounded */
+.home-btn {
+  background-color: #007bff;
   color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  width: 42px;
+  height: 42px;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
-  min-width: 220px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
 }
 
-/* Individual Button Styles */
-.navbar button.add {
-  background-color: #34c759;
-}
-.navbar button.add:hover {
-  background-color: #28a745;
-}
-
-.navbar button.view {
-  background-color: #007aff;
-}
-.navbar button.view:hover {
+.home-btn:hover {
   background-color: #0056b3;
 }
 
-.navbar button.viewid {
-  background-color: #5ac8fa;
-}
-.navbar button.viewid:hover {
-  background-color: #138496;
+
+.logout-btn {
+  background-color: #ef5350;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.navbar button.update {
-  background-color: #ffcc00;
-  color: #212529;
-}
-.navbar button.update:hover {
-  background-color: #e0a800;
-}
-
-.navbar button.delete {
-  background-color: #ff3b30;
-}
-.navbar button.delete:hover {
-  background-color: #c82333;
-}
-
-/* Logout Button - unified with other navbar buttons */
-.navbar button.logout-btn {
-  background-color: #f44336;
-}
-.navbar button.logout-btn:hover {
+.logout-btn:hover {
   background-color: #d32f2f;
+}
+
+/* Navbar Row Container */
+.navbar-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.navbar-left {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.navbar-right {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-left: auto;
+}
+
+.navbar-left button,
+.navbar button.logout-btn {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 26px;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 160px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-left button.add {
+  background-color: #26c6da;
+}
+
+.navbar-left button.add:hover {
+  background-color: #00acc1;
 }
 
 .navbar button:active {
   transform: scale(0.96);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Home Button */
-.home-btn {
-  background-color: #f0f0f0;
+.search-input {
+  padding: 10px 12px 10px 35px;
+  border-radius: 25px;
   border: 1px solid #ccc;
-  padding: 8px 12px;
-  margin-bottom: 15px;
-  cursor: pointer;
-  font-weight: bold;
-  border-radius: 6px;
-  float: right;
+  font-size: 14px;
+  background-image: url('data:image/svg+xml;charset=UTF-8,<svg fill="gray" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C8.01 14 6 11.99 6 9.5S8.01 5 10.5 5 15 7.01 15 9.5 12.99 14 10.5 14z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 18px;
+  width: 220px;
+  box-sizing: border-box;
 }
 
-/* Catalogue List Styling */
+.filter-dropdown {
+  padding: 10px 14px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.filter-dropdown:hover {
+  border-color: #888;
+}
+
 #catalogueList {
   text-align: left;
   margin-top: 30px;
 }
 
 .catalogue {
-  background-color: #f9f9f9;
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 6px;
-  border-left: 5px solid #007bff;
-}
-
-/* Catalogue Item */
-/* Login Container */
-.login-container {
-  max-width: 400px;
-  width: 90%;
-  margin: 100px auto;
-  padding: 40px 30px;
-  border: 1px solid #ddd;
-  border-radius: 12px;
   background-color: #ffffff;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border-left: 5px solid #42a5f5;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
 }
 
-/* Login Form Inputs and Button */
-.login-container input,
-.login-container button {
-  display: block;
-  width: 100%;
-  margin: 15px 0;
-  padding: 12px 14px;
-  font-size: 16px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
+.catalogue p {
+  margin: 8px 0;
 }
 
-/* Login Button */
-.login-container button {
-  background-color: #007aff;
-  color: white;
-  border: none;
+.catalogue button {
+  margin-right: 10px;
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-size: 14px;
   font-weight: bold;
+  border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.login-container button:hover {
-  background-color: #0056b3;
+.catalogue button:hover {
+  opacity: 0.9;
 }
 
-/* Error Message */
-.error-message {
-  color: red;
-  margin-top: 10px;
+.catalogue button:nth-of-type(1) {
+  background-color: #ffd54f;
+  color: #212529;
+}
+
+.catalogue button:nth-of-type(2) {
+  background-color: #ef5350;
+  color: white;
+}
+
+form input,
+form select,
+form button {
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+form button {
+  background-color: #4caf50;
+  color: white;
   font-weight: bold;
-  text-align: center;
+  cursor: pointer;
 }
 
+form button:hover {
+  background-color: #388e3c;
+}
 
-/* Notification */
 .notification {
   margin: 10px auto;
   padding: 10px 20px;
@@ -199,38 +241,145 @@ h1, h2 {
   border: 1px solid #f5c6cb;
 }
 
-/* Forms */
-form input, form select, form button {
-  display: block;
-  width: 100%;
-  margin-bottom: 15px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
+.login-container {
+  max-width: 400px;
+  width: 90%;
+  margin: 100px auto;
+  padding: 40px 30px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
-form button {
-  background-color: #28a745;
+.login-container input,
+.login-container button {
+  display: block;
+  width: 100%;
+  margin: 15px 0;
+  padding: 12px 14px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.login-container button {
+  background-color: #007aff;
   color: white;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-container button:hover {
+  background-color: #0056b3;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.pagination-controls button {
+  padding: 6px 12px;
+  border: none;
+  background-color: #e0e0e0;
+  color: #333;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pagination-controls button:hover {
+  background-color: #cfd8dc;
+}
+
+.pagination-controls button.active-page {
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+}
+
+.pagination-controls button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+#catalogueScrollWrapper {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+  padding-right: 10px;
+}
+
+#catalogueScrollWrapper::-webkit-scrollbar {
+  width: 8px;
+}
+
+#catalogueScrollWrapper::-webkit-scrollbar-thumb {
+  background-color: #aaa;
+  border-radius: 4px;
+}
+
+.return-home-btn {
+  background-color: #42a5f5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  margin-top: 20px;
   font-weight: bold;
   cursor: pointer;
 }
 
-form button:hover {
-  background-color: #218838;
+.return-home-btn:hover {
+  background-color: #1e88e5;
 }
 
-/* Message Styling */
-#msg {
-  margin-top: 15px;
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.controls input[type="text"],
+.controls select {
+  padding: 6px 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  transition: border-color 0.2s ease;
+}
+
+.controls input[type="text"]:focus,
+.controls select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.controls label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-right: 4px;
+}
+
+.message-box {
+  margin-top: 10px;
   font-weight: bold;
-}
-
-#error {
-  color: red;
-}
-
-#success {
-  color: green;
+  transition: opacity 0.3s ease;
 }

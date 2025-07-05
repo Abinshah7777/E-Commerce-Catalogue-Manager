@@ -7,24 +7,142 @@
 </head>
 <body>
 
-<div class="container">
-  <h1 class="title">📦 Catalogue Manager </h1>
-
-  
-  <div id="msg" class="notification"></div>
-
-  <nav class="navbar">
-    <button class="add" onclick="showCreateForm()">➕ Add New Catalogue</button>
-    <button class="view" onclick="fetchAllCatalogues()">📋 Get All Catalogues</button>
-    <button class="viewid" onclick="promptViewById()">🔍 Get Catalogue by ID</button>
-    <button id="homeBtn" class="home-btn" onclick="showHomeOptions()" style="display: none;">🏠 Home</button>
-    <button onclick="location.href='/logout'" class="logout-btn">🚪 Logout</button>
-  </nav>
-
-  <div id="catalogueList" class="catalogue-output"></div>
+<body>
+  <div class="container">
+    <div class="navbar-top-right">
+  <button class="home-btn" onclick="fetchAllCatalogues()">🏠</button>
+  <button onclick="location.href='/logout'" class="logout-btn">🚪 Logout</button>
 </div>
 
+    <h1 class="title">📦 Catalogue Manager</h1>
 
-<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <div id="msg" class="notification"></div>
+
+    <!-- Navbar -->
+    <div class="navbar-row">
+      <div class="navbar-left">
+        <button class="add" onclick="showCreateForm()">➕ Add New Catalogue</button>
+       
+      </div>
+
+      <div class="navbar-right">
+        <input type="text" id="searchInput" class="search-input" placeholder=" Search by ID or Name" oninput="applyFilters()" />
+        <select id="statusFilter" class="filter-dropdown" onchange="applyFilters()">
+          <option value="all">Show All</option>
+          <option value="active">Active</option>
+          <option value="inactive">Inactive</option>
+        </select>
+
+        <!-- 🔽 Sorting Dropdown Added -->
+        <select id="sortOrder" class="filter-dropdown" onchange="applyFilters()">
+          <option value="asc">Oldest First</option>
+          <option value="desc">Newest First</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="catalogueScrollWrapper" style="max-height: 65vh; overflow-y: auto;">
+      <div id="catalogueList" class="catalogue-output"></div>
+    </div>
+
+    <!-- 🔽 Pagination Controls -->
+    <div id="paginationControls" class="pagination-controls"></div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  <script>
+    let allCatalogues = [];
+    let currentPage = 1;
+    const itemsPerPage = 5;
+
+    window.addEventListener('DOMContentLoaded', async () => {
+      try {
+        const res = await fetch('/api/catalogues');
+        const response = await res.json();
+        if (response.success) {
+          allCatalogues = response.data;
+          applyFilters();
+        } else {
+          document.getElementById('catalogueList').innerHTML = '<p>No catalogues found.</p>';
+        }
+      } catch {
+        document.getElementById('catalogueList').innerHTML = '<p>Error loading catalogues.</p>';
+      }
+    });
+
+    function applyFilters() {
+      const query = document.getElementById('searchInput').value.trim().toLowerCase();
+      const status = document.getElementById('statusFilter').value;
+      const sortOrder = document.getElementById('sortOrder')?.value || 'desc';
+
+      let filtered = [...allCatalogues];
+
+      if (query) {
+        filtered = filtered.filter(cat =>
+          cat.catalogue_id.toString().includes(query) ||
+          cat.catalogue_name.toLowerCase().includes(query)
+        );
+      }
+
+      if (status === 'active') {
+        filtered = filtered.filter(cat => cat.is_cat_active);
+      } else if (status === 'inactive') {
+        filtered = filtered.filter(cat => !cat.is_cat_active);
+      }
+
+      filtered.sort((a, b) =>
+        sortOrder === 'asc'
+          ? a.catalogue_id - b.catalogue_id
+          : b.catalogue_id - a.catalogue_id
+      );
+
+      renderPaginatedCatalogues(filtered);
+    }
+
+    function renderPaginatedCatalogues(catalogues) {
+      const container = document.getElementById('catalogueList');
+      const paginationContainer = document.getElementById('paginationControls');
+      container.innerHTML = '';
+      paginationContainer.innerHTML = '';
+
+      if (catalogues.length === 0) {
+        container.innerHTML = '<p>No matching catalogues found.</p>';
+        return;
+      }
+
+      const totalPages = Math.ceil(catalogues.length / itemsPerPage);
+      if (currentPage > totalPages) currentPage = totalPages;
+
+      const start = (currentPage - 1) * itemsPerPage;
+      const end = start + itemsPerPage;
+      const paginatedData = catalogues.slice(start, end);
+
+      paginatedData.forEach(cat => {
+        const div = document.createElement('div');
+        div.className = 'catalogue';
+        div.innerHTML = `
+          <p><strong>${cat.catalogue_name}</strong> (ID: ${cat.catalogue_id})</p>
+          <p>Version: ${cat.catalogue_version}, Status: ${cat.is_cat_active ? "Active" : "Inactive"}</p>
+          <p>Start: ${cat.catalogue_start}, End: ${cat.catalogue_end}</p>
+          <button onclick="editCatalogue(${cat.catalogue_id})">✏️ Update</button>
+          <button onclick="deleteCatalogue(${cat.catalogue_id})">🗑️ Delete</button>
+          <hr>
+        `;
+        container.appendChild(div);
+      });
+
+      // Pagination Buttons
+      for (let i = 1; i <= totalPages; i++) {
+        const btn = document.createElement('button');
+        btn.textContent = i;
+        btn.className = (i === currentPage) ? 'active-page' : '';
+        btn.addEventListener('click', () => {
+          currentPage = i;
+          renderPaginatedCatalogues(catalogues);
+        });
+        paginationContainer.appendChild(btn);
+      }
+    }
+  </script>
 </body>
 </html>
