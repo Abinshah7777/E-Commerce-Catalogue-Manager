@@ -87,3 +87,38 @@ mysql.connector.errors.IntegrityError: 1062 (23000): Duplicate entry '1' for key
 2025-07-05 15:43:14,322 [INFO] 192.168.1.4 - - [05/Jul/2025 15:43:14] "[31m[1mPOST /api/catalogues HTTP/1.1[0m" 409 -
 2025-07-05 15:43:21,124 [INFO] User "admin" fetched all catalogues.
 2025-07-05 15:43:21,134 [INFO] 192.168.1.4 - - [05/Jul/2025 15:43:21] "GET /api/catalogues HTTP/1.1" 200 -
+2025-07-05 19:35:16,382 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.4:5000
+2025-07-05 19:35:16,383 [INFO] [33mPress CTRL+C to quit[0m
+2025-07-05 19:35:16,384 [INFO]  * Restarting with stat
+2025-07-05 19:35:16,647 [WARNING]  * Debugger is active!
+2025-07-05 19:35:16,650 [INFO]  * Debugger PIN: 918-996-638
+2025-07-05 19:35:20,426 [INFO] 192.168.1.4 - - [05/Jul/2025 19:35:20] "[32mGET / HTTP/1.1[0m" 302 -
+2025-07-05 19:35:20,451 [INFO] 192.168.1.4 - - [05/Jul/2025 19:35:20] "GET /login HTTP/1.1" 200 -
+2025-07-05 19:35:20,529 [INFO] 192.168.1.4 - - [05/Jul/2025 19:35:20] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-05 19:35:20,848 [INFO] 192.168.1.4 - - [05/Jul/2025 19:35:20] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-05 19:35:29,976 [INFO] User "admin" logged in successfully.
+2025-07-05 19:35:29,976 [INFO] 192.168.1.4 - - [05/Jul/2025 19:35:29] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-05 19:35:29,987 [INFO] 192.168.1.4 - - [05/Jul/2025 19:35:29] "GET / HTTP/1.1" 200 -
+2025-07-05 19:35:30,031 [INFO] 192.168.1.4 - - [05/Jul/2025 19:35:30] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-05 19:35:30,036 [INFO] 192.168.1.4 - - [05/Jul/2025 19:35:30] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-07-05 19:35:30,057 [INFO] User "admin" fetched all catalogues.
+2025-07-05 19:35:30,066 [INFO] 192.168.1.4 - - [05/Jul/2025 19:35:30] "GET /api/catalogues HTTP/1.1" 200 -
+2025-07-05 19:35:32,134 [INFO] User "admin" fetched catalogue with ID 1.
+2025-07-05 19:35:32,135 [INFO] 192.168.1.4 - - [05/Jul/2025 19:35:32] "GET /api/catalogues/1 HTTP/1.1" 200 -
+2025-07-05 19:35:42,078 [WARNING] User "admin" attempted to update catalogue ID 1 with past or today's date.
+2025-07-05 19:35:42,079 [INFO] 192.168.1.4 - - [05/Jul/2025 19:35:42] "[31m[1mPUT /api/catalogues/1 HTTP/1.1[0m" 400 -
+2025-07-05 19:35:50,499 [INFO] User "admin" updated catalogue ID 1.
+2025-07-05 19:35:50,500 [INFO] 192.168.1.4 - - [05/Jul/2025 19:35:50] "PUT /api/catalogues/1 HTTP/1.1" 200 -
+2025-07-05 19:35:52,412 [INFO] User "admin" fetched all catalogues.
+2025-07-05 19:35:52,424 [INFO] 192.168.1.4 - - [05/Jul/2025 19:35:52] "GET /api/catalogues HTTP/1.1" 200 -
+2025-07-05 19:36:09,414 [INFO] User "admin" deleted catalogue ID 111.
+2025-07-05 19:36:09,415 [INFO] 192.168.1.4 - - [05/Jul/2025 19:36:09] "DELETE /api/catalogues/111 HTTP/1.1" 200 -
+2025-07-05 19:36:09,654 [INFO] User "admin" fetched all catalogues.
+2025-07-05 19:36:09,667 [INFO] 192.168.1.4 - - [05/Jul/2025 19:36:09] "GET /api/catalogues HTTP/1.1" 200 -
+2025-07-05 19:36:11,581 [INFO] User "admin" deleted catalogue ID 8.
+2025-07-05 19:36:11,582 [INFO] 192.168.1.4 - - [05/Jul/2025 19:36:11] "DELETE /api/catalogues/8 HTTP/1.1" 200 -
+2025-07-05 19:36:11,871 [INFO] User "admin" fetched all catalogues.
+2025-07-05 19:36:11,883 [INFO] 192.168.1.4 - - [05/Jul/2025 19:36:11] "GET /api/catalogues HTTP/1.1" 200 -

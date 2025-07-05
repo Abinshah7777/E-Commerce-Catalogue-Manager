@@ -1,4 +1,5 @@
 import logging
+from datetime import datetime
 from flask import Flask, request, jsonify, render_template, redirect, url_for, session
 from service.catalogue_service import CatalogueService
 from dto.catalogue_dto import Catalogue
@@ -69,6 +70,25 @@ def create_catalogue():
         if not all(key in data for key in ['catalogue_id', 'catalogue_name', 'catalogue_version', 'is_cat_active', 'catalogue_start', 'catalogue_end']):
             raise InvalidCatalogueInputError("Invalid input: one or more required fields are missing or empty.")
 
+        #  Date validation
+        start_date = datetime.strptime(data['catalogue_start'], '%Y-%m-%d')
+        end_date = datetime.strptime(data['catalogue_end'], '%Y-%m-%d')
+        today = datetime.today().date()
+
+        if start_date.date() <= today or end_date.date() <= today:
+            logging.warning(f'User "{session["username"]}" attempted to create a catalogue with past or today\'s date.')
+            return jsonify({
+                "success": False,
+                "error": "Catalogue start and end dates must be in the future."
+            }), 400
+
+        if end_date <= start_date:
+            logging.warning(f'User "{session["username"]}" entered end date before start date.')
+            return jsonify({
+                "success": False,
+                "error": "Catalogue end date must be after the start date."
+            }), 400
+
         catalogue = Catalogue(
             catalogue_id=int(data['catalogue_id']),
             catalogue_name=data['catalogue_name'],
@@ -118,6 +138,20 @@ def update_catalogue(id):
         data = request.json
         if not all(key in data for key in ['catalogue_name', 'catalogue_version', 'is_cat_active', 'catalogue_start', 'catalogue_end']):
             raise InvalidCatalogueInputError("Invalid input: one or more required fields are missing or empty.")
+
+        #  Date validation
+        start_date = datetime.strptime(data['catalogue_start'], '%Y-%m-%d')
+        end_date = datetime.strptime(data['catalogue_end'], '%Y-%m-%d')
+        today = datetime.today().date()
+
+        if start_date.date() <= today or end_date.date() <= today:
+            logging.warning(f'User "{session["username"]}" attempted to update catalogue ID {id} with past or today\'s date.')
+            return error_response("Catalogue start and end dates must be in the future.", 400)
+
+        if end_date <= start_date:
+            logging.warning(f'User "{session["username"]}" attempted to set end date before start date for catalogue ID {id}.')
+            return error_response("Catalogue end date must be after the start date.", 400)
+
         updated = Catalogue(
             catalogue_id=id,
             catalogue_name=data['catalogue_name'],
