@@ -30,41 +30,53 @@ A full-stack web application to manage e-commerce catalogues with secure login, 
 # 📁 Project Structure
 
 Catalogue_Manager/
+├── app.py                        # Main Flask app entry point
+├── requirements.txt              # Python dependencies
+├── .gitignore                    # Git ignore rules
+├── README.md                     # Project documentation
+
 ├── api/
-│   └── catalogue_api.py
+│   └── catalogue_api.py          # JSON API routes
+
 ├── config/
-│   └── config.ini
+│   └── config.ini                # MySQL and app configurations
+
 ├── dto/
 │   ├── __init__.py
-│   └── catalogue_dto.py
+│   └── catalogue_dto.py          # Data Transfer Object for Catalogue
+
 ├── exceptions/
 │   ├── __init__.py
-│   └── exceptions.py
+│   └── exceptions.py             # Custom exceptions
+
 ├── service/
 │   ├── __init__.py
 │   ├── authentication_service.py
-│   └── catalogue_service.py
+│   └── catalogue_service.py      # Business logic layer
+
 ├── static/
 │   ├── css/
-│   │   └── style.css
+│   │   └── style.css             # Stylesheet for the frontend
 │   └── js/
-│       └── main.js
+│       └── main.js               # JavaScript using Fetch API
+
 ├── templates/
-│   ├── index.html
-│   └── login.html
+│   ├── index.html                # Main UI
+│   └── login.html                # Login page
+
 ├── util/
 │   ├── __init__.py
-│   ├── db_get_connection.py
-│   └── validators.py
+│   ├── db_get_connection.py      # DB connection utility
+│   └── validators.py             # Input validation logic
+
 ├── logs/
-│   └── app.log
+│   └── app.log                   # Application logs
+
 ├── tests/
 │   ├── __init__.py
-│   └── test_catalogue.py
-├── .gitignore
-├── app.py
-├── requirements.txt
-└── README.md
+│   └── test_catalogue.py         # Unit tests
+
+
 # 🧑‍💻 Setup Instructions
 ### 1️⃣ Clone the Repository
 git clone https://github.com/Abinshah7777/E-Commerce-Catalogue-Manager.git
