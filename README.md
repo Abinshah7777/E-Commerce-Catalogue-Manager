@@ -27,39 +27,34 @@ A full-stack web application to manage e-commerce catalogues with secure login, 
 | Architecture | Modular OOP + Service Layer        |
 | Other        | Session-based auth, Custom logging |
 
----
-
-## 📁 Project Structure
-
 Catalogue_Manager/
-│
-├── app.py # Main Flask app
-├── config/ # DB or config (if applicable)
+├── app.py                    # Main Flask app
 ├── dto/
-│ └── catalogue_dto.py # DTO for Catalogue
+│   └── catalogue_dto.py      # DTO for Catalogue
 ├── exceptions/
-│ └── exceptions.py # Custom exception classes
+│   ├── __init__.py
+│   └── exceptions.py         # Custom exception classes
 ├── logs/
-│ └── app.log # Application logs
+│   └── app.log               # Application logs
 ├── service/
-│ ├── authentication_service.py
-│ └── catalogue_service.py # Business logic layer
+│   ├── __init__.py
+│   ├── authentication_service.py
+│   └── catalogue_service.py  # Business logic layer
 ├── static/
-│ └── js/ # JavaScript (Fetch API logic)
+│   ├── css/
+│   │   └── style.css         # Stylesheet for the frontend
+│   └── js/
+│       └── main.js           # JavaScript (Fetch API logic)
 ├── templates/
-│ ├── index.html # Frontend page
-│ └── login.html # Login page
+│   ├── index.html            # Main frontend page
+│   └── login.html            # Login page
 ├── util/
-│ └── validators.py # Input validation helpers
-├── tests/ # (Optional) Test scripts
-├── requirements.txt # Python dependencies
-└── README.md # Project documentation
+│   └── validators.py         # Input validation helpers
+├── tests/                    # (Optional) Unit tests
+├── requirements.txt          # Python dependencies
+├── .gitignore                # Git ignore file
+└── README.md                 # Project documentation
 
-yaml
-Copy
-Edit
-
----
 
 ## 🧑‍💻 Setup Instructions
 
