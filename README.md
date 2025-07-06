@@ -39,47 +39,64 @@ Catalogue_Manager/
 ├── README.md                 # Project documentation
 
 ├── api/
+
 │   └── catalogue_api.py      # JSON API routes
 
 ├── config/
 │   └── config.ini            # MySQL and app configurations
 
 ├── dto/
+
 │   ├── __init__.py
+
 │   └── catalogue_dto.py      # DTO for Catalogue objects
 
 ├── exceptions/
+
 │   ├── __init__.py
+
 │   └── exceptions.py         # Custom exception classes
 
 ├── service/
+
 │   ├── __init__.py
+
 │   ├── authentication_service.py
+
 │   └── catalogue_service.py  # Business logic layer
 
 ├── static/
+
 │   ├── css/
+
 │   │   └── style.css         # Frontend styles
 
 │   └── js/
+
 │       └── main.js           # JavaScript (Fetch API logic)
 
 ├── templates/
+
 │   ├── index.html            # Main UI
 
 │   └── login.html            # Login page
 
 ├── util/
+
 │   ├── __init__.py
+
 │   ├── db_get_connection.py  # MySQL connection helper
 
 │   └── validators.py         # Input validation
 
 ├── logs/
+
 │   └── app.log               # Application logs
 
 ├── tests/
+
 │   ├── __init__.py
+
 │   └── test_catalogue.py     # Unit tests
 
 
