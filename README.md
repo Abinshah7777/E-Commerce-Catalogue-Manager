@@ -73,8 +73,8 @@ Catalogue_Manager/
 │   └── app.log               # Application logs
 
 ├── tests/
-│   ├── __init__.py
-│   └── test_catalogue.py     # Unit tests
+    ├── __init__.py
+    └── test_catalogue.py     # Unit tests
 ```
 
 
