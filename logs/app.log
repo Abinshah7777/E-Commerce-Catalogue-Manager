@@ -892,3 +892,221 @@ mysql.connector.errors.IntegrityError: 1062 (23000): Duplicate entry '1' for key
 2025-07-06 14:22:45,879 [INFO] 192.168.1.4 - - [06/Jul/2025 14:22:45] "GET /api/catalogues/7 HTTP/1.1" 200 -
 2025-07-06 14:22:46,997 [INFO] User "admin" fetched all catalogues.
 2025-07-06 14:22:47,017 [INFO] 192.168.1.4 - - [06/Jul/2025 14:22:47] "GET /api/catalogues HTTP/1.1" 200 -
+2025-07-06 14:28:06,132 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.4:5000
+2025-07-06 14:28:06,133 [INFO] [33mPress CTRL+C to quit[0m
+2025-07-06 14:28:06,135 [INFO]  * Restarting with stat
+2025-07-06 14:28:06,627 [WARNING]  * Debugger is active!
+2025-07-06 14:28:06,632 [INFO]  * Debugger PIN: 918-996-638
+2025-07-06 14:28:07,756 [INFO] 192.168.1.4 - - [06/Jul/2025 14:28:07] "GET / HTTP/1.1" 200 -
+2025-07-06 14:28:07,894 [INFO] 192.168.1.4 - - [06/Jul/2025 14:28:07] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-06 14:28:07,900 [INFO] 192.168.1.4 - - [06/Jul/2025 14:28:07] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-07-06 14:28:08,188 [INFO] User "admin" fetched all catalogues.
+2025-07-06 14:28:08,303 [INFO] 192.168.1.4 - - [06/Jul/2025 14:28:08] "GET /api/catalogues HTTP/1.1" 200 -
+2025-07-06 14:28:11,498 [INFO] User "admin" logged out.
+2025-07-06 14:28:11,499 [INFO] 192.168.1.4 - - [06/Jul/2025 14:28:11] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-07-06 14:28:11,513 [INFO] 192.168.1.4 - - [06/Jul/2025 14:28:11] "GET /login HTTP/1.1" 200 -
+2025-07-06 14:28:11,548 [INFO] 192.168.1.4 - - [06/Jul/2025 14:28:11] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-06 14:28:12,919 [INFO] 192.168.1.4 - - [06/Jul/2025 14:28:12] "[32mGET / HTTP/1.1[0m" 302 -
+2025-07-06 14:28:12,933 [INFO] 192.168.1.4 - - [06/Jul/2025 14:28:12] "GET /login HTTP/1.1" 200 -
+2025-07-06 14:28:12,963 [INFO] 192.168.1.4 - - [06/Jul/2025 14:28:12] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-06 14:28:20,157 [INFO] User "admin" logged in successfully.
+2025-07-06 14:28:20,159 [INFO] 192.168.1.4 - - [06/Jul/2025 14:28:20] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-06 14:28:20,170 [INFO] 192.168.1.4 - - [06/Jul/2025 14:28:20] "GET / HTTP/1.1" 200 -
+2025-07-06 14:28:20,223 [INFO] 192.168.1.4 - - [06/Jul/2025 14:28:20] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-06 14:28:20,224 [INFO] 192.168.1.4 - - [06/Jul/2025 14:28:20] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-07-06 14:28:20,261 [INFO] User "admin" fetched all catalogues.
+2025-07-06 14:28:20,298 [INFO] 192.168.1.4 - - [06/Jul/2025 14:28:20] "GET /api/catalogues HTTP/1.1" 200 -
+2025-07-06 14:28:35,507 [INFO] User "admin" fetched catalogue with ID 1.
+2025-07-06 14:28:35,508 [INFO] 192.168.1.4 - - [06/Jul/2025 14:28:35] "GET /api/catalogues/1 HTTP/1.1" 200 -
+2025-07-06 14:28:43,994 [WARNING] User "admin" attempted to update catalogue ID 1 with past or today's date.
+2025-07-06 14:28:43,995 [INFO] 192.168.1.4 - - [06/Jul/2025 14:28:43] "[31m[1mPUT /api/catalogues/1 HTTP/1.1[0m" 400 -
+2025-07-06 14:28:58,611 [INFO] User "admin" updated catalogue ID 1.
+2025-07-06 14:28:58,614 [INFO] 192.168.1.4 - - [06/Jul/2025 14:28:58] "PUT /api/catalogues/1 HTTP/1.1" 200 -
+2025-07-06 14:29:00,488 [INFO] User "admin" fetched all catalogues.
+2025-07-06 14:29:00,515 [INFO] 192.168.1.4 - - [06/Jul/2025 14:29:00] "GET /api/catalogues HTTP/1.1" 200 -
+2025-07-06 14:29:05,558 [INFO] User "admin" logged out.
+2025-07-06 14:29:05,559 [INFO] 192.168.1.4 - - [06/Jul/2025 14:29:05] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-07-06 14:29:05,567 [INFO] 192.168.1.4 - - [06/Jul/2025 14:29:05] "GET /login HTTP/1.1" 200 -
+2025-07-06 14:29:05,603 [INFO] 192.168.1.4 - - [06/Jul/2025 14:29:05] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-06 17:07:33,066 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.4:5000
+2025-07-06 17:07:33,067 [INFO] [33mPress CTRL+C to quit[0m
+2025-07-06 17:07:33,069 [INFO]  * Restarting with stat
+2025-07-06 17:07:33,384 [WARNING]  * Debugger is active!
+2025-07-06 17:07:33,388 [INFO]  * Debugger PIN: 918-996-638
+2025-07-06 17:07:37,524 [INFO] 127.0.0.1 - - [06/Jul/2025 17:07:37] "[32mGET / HTTP/1.1[0m" 302 -
+2025-07-06 17:07:37,541 [INFO] 127.0.0.1 - - [06/Jul/2025 17:07:37] "GET /login HTTP/1.1" 200 -
+2025-07-06 17:07:37,677 [INFO] 127.0.0.1 - - [06/Jul/2025 17:07:37] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-06 17:07:37,860 [INFO] 127.0.0.1 - - [06/Jul/2025 17:07:37] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-06 17:07:44,436 [INFO] User "admin" logged in successfully.
+2025-07-06 17:07:44,436 [INFO] 127.0.0.1 - - [06/Jul/2025 17:07:44] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-06 17:07:44,445 [INFO] 127.0.0.1 - - [06/Jul/2025 17:07:44] "GET / HTTP/1.1" 200 -
+2025-07-06 17:07:44,472 [INFO] 127.0.0.1 - - [06/Jul/2025 17:07:44] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-06 17:07:44,482 [INFO] 127.0.0.1 - - [06/Jul/2025 17:07:44] "GET /static/js/main.js HTTP/1.1" 200 -
+2025-07-06 17:07:44,571 [INFO] 127.0.0.1 - - [06/Jul/2025 17:07:44] "[33mGET /api/catalogues/ HTTP/1.1[0m" 404 -
+2025-07-06 17:11:16,018 [INFO] 192.168.1.4 - - [06/Jul/2025 17:11:16] "[32mGET / HTTP/1.1[0m" 302 -
+2025-07-06 17:11:16,027 [INFO] 192.168.1.4 - - [06/Jul/2025 17:11:16] "GET /login HTTP/1.1" 200 -
+2025-07-06 17:11:16,072 [INFO] 192.168.1.4 - - [06/Jul/2025 17:11:16] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-06 17:11:16,390 [INFO] 192.168.1.4 - - [06/Jul/2025 17:11:16] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-06 17:11:21,359 [INFO] User "admin" logged in successfully.
+2025-07-06 17:11:21,360 [INFO] 192.168.1.4 - - [06/Jul/2025 17:11:21] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-06 17:11:21,365 [INFO] 192.168.1.4 - - [06/Jul/2025 17:11:21] "GET / HTTP/1.1" 200 -
+2025-07-06 17:11:21,395 [INFO] 192.168.1.4 - - [06/Jul/2025 17:11:21] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-06 17:11:21,402 [INFO] 192.168.1.4 - - [06/Jul/2025 17:11:21] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-07-06 17:11:21,424 [INFO] User "admin" fetched all catalogues.
+2025-07-06 17:11:21,438 [INFO] 192.168.1.4 - - [06/Jul/2025 17:11:21] "GET /api/catalogues HTTP/1.1" 200 -
+2025-07-06 17:11:24,309 [INFO] 127.0.0.1 - - [06/Jul/2025 17:11:24] "GET / HTTP/1.1" 200 -
+2025-07-06 17:11:24,330 [INFO] 127.0.0.1 - - [06/Jul/2025 17:11:24] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-06 17:11:24,331 [INFO] 127.0.0.1 - - [06/Jul/2025 17:11:24] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-07-06 17:11:24,446 [INFO] 127.0.0.1 - - [06/Jul/2025 17:11:24] "[33mGET /api/catalogues/ HTTP/1.1[0m" 404 -
+2025-07-06 17:11:35,845 [INFO] 127.0.0.1 - - [06/Jul/2025 17:11:35] "GET / HTTP/1.1" 200 -
+2025-07-06 17:11:35,881 [INFO] 127.0.0.1 - - [06/Jul/2025 17:11:35] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-06 17:11:35,882 [INFO] 127.0.0.1 - - [06/Jul/2025 17:11:35] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-07-06 17:11:36,077 [INFO] 127.0.0.1 - - [06/Jul/2025 17:11:36] "[33mGET /api/catalogues/ HTTP/1.1[0m" 404 -
+2025-07-06 17:11:37,455 [INFO] 127.0.0.1 - - [06/Jul/2025 17:11:37] "GET / HTTP/1.1" 200 -
+2025-07-06 17:11:37,472 [INFO] 127.0.0.1 - - [06/Jul/2025 17:11:37] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-06 17:11:37,475 [INFO] 127.0.0.1 - - [06/Jul/2025 17:11:37] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-07-06 17:11:37,517 [INFO] 127.0.0.1 - - [06/Jul/2025 17:11:37] "[33mGET /api/catalogues/ HTTP/1.1[0m" 404 -
+2025-07-06 17:11:45,631 [INFO] User "admin" logged out.
+2025-07-06 17:11:45,632 [INFO] 192.168.1.4 - - [06/Jul/2025 17:11:45] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-07-06 17:11:45,637 [INFO] 192.168.1.4 - - [06/Jul/2025 17:11:45] "GET /login HTTP/1.1" 200 -
+2025-07-06 17:11:45,668 [INFO] 192.168.1.4 - - [06/Jul/2025 17:11:45] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-06 17:50:24,501 [INFO] 127.0.0.1 - - [06/Jul/2025 17:50:24] "GET / HTTP/1.1" 200 -
+2025-07-06 17:50:24,524 [INFO] 127.0.0.1 - - [06/Jul/2025 17:50:24] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-06 17:50:24,527 [INFO] 127.0.0.1 - - [06/Jul/2025 17:50:24] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-07-06 17:50:24,742 [INFO] 127.0.0.1 - - [06/Jul/2025 17:50:24] "[33mGET /api/catalogues/ HTTP/1.1[0m" 404 -
+2025-07-06 17:50:41,493 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.4:5000
+2025-07-06 17:50:41,493 [INFO] [33mPress CTRL+C to quit[0m
+2025-07-06 17:50:41,495 [INFO]  * Restarting with stat
+2025-07-06 17:50:41,760 [WARNING]  * Debugger is active!
+2025-07-06 17:50:41,764 [INFO]  * Debugger PIN: 918-996-638
+2025-07-06 17:50:47,814 [INFO] 127.0.0.1 - - [06/Jul/2025 17:50:47] "GET / HTTP/1.1" 200 -
+2025-07-06 17:50:47,905 [INFO] 127.0.0.1 - - [06/Jul/2025 17:50:47] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-06 17:50:47,906 [INFO] 127.0.0.1 - - [06/Jul/2025 17:50:47] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-07-06 17:50:48,054 [INFO] 127.0.0.1 - - [06/Jul/2025 17:50:48] "[33mGET /api/catalogues/ HTTP/1.1[0m" 404 -
+2025-07-06 17:50:51,887 [INFO] 127.0.0.1 - - [06/Jul/2025 17:50:51] "GET / HTTP/1.1" 200 -
+2025-07-06 17:50:51,910 [INFO] 127.0.0.1 - - [06/Jul/2025 17:50:51] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-06 17:50:51,911 [INFO] 127.0.0.1 - - [06/Jul/2025 17:50:51] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-07-06 17:50:51,958 [INFO] 127.0.0.1 - - [06/Jul/2025 17:50:51] "[33mGET /api/catalogues/ HTTP/1.1[0m" 404 -
+2025-07-06 17:50:52,470 [INFO] 127.0.0.1 - - [06/Jul/2025 17:50:52] "GET / HTTP/1.1" 200 -
+2025-07-06 17:50:52,494 [INFO] 127.0.0.1 - - [06/Jul/2025 17:50:52] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-06 17:50:52,495 [INFO] 127.0.0.1 - - [06/Jul/2025 17:50:52] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-07-06 17:50:52,536 [INFO] 127.0.0.1 - - [06/Jul/2025 17:50:52] "[33mGET /api/catalogues/ HTTP/1.1[0m" 404 -
+2025-07-06 17:50:52,775 [INFO] 127.0.0.1 - - [06/Jul/2025 17:50:52] "GET / HTTP/1.1" 200 -
+2025-07-06 17:50:52,799 [INFO] 127.0.0.1 - - [06/Jul/2025 17:50:52] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-06 17:50:52,800 [INFO] 127.0.0.1 - - [06/Jul/2025 17:50:52] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-07-06 17:50:52,840 [INFO] 127.0.0.1 - - [06/Jul/2025 17:50:52] "[33mGET /api/catalogues/ HTTP/1.1[0m" 404 -
+2025-07-06 17:50:52,998 [INFO] 127.0.0.1 - - [06/Jul/2025 17:50:52] "GET / HTTP/1.1" 200 -
+2025-07-06 17:50:53,020 [INFO] 127.0.0.1 - - [06/Jul/2025 17:50:53] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-07-06 17:50:53,021 [INFO] 127.0.0.1 - - [06/Jul/2025 17:50:53] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-06 17:50:53,064 [INFO] 127.0.0.1 - - [06/Jul/2025 17:50:53] "[33mGET /api/catalogues/ HTTP/1.1[0m" 404 -
+2025-07-06 17:50:53,169 [INFO] 127.0.0.1 - - [06/Jul/2025 17:50:53] "GET / HTTP/1.1" 200 -
+2025-07-06 17:50:53,190 [INFO] 127.0.0.1 - - [06/Jul/2025 17:50:53] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-06 17:50:53,191 [INFO] 127.0.0.1 - - [06/Jul/2025 17:50:53] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-07-06 17:50:53,237 [INFO] 127.0.0.1 - - [06/Jul/2025 17:50:53] "[33mGET /api/catalogues/ HTTP/1.1[0m" 404 -
+2025-07-06 17:50:54,058 [INFO] User "admin" logged out.
+2025-07-06 17:50:54,059 [INFO] 127.0.0.1 - - [06/Jul/2025 17:50:54] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-07-06 17:50:54,067 [INFO] 127.0.0.1 - - [06/Jul/2025 17:50:54] "GET /login HTTP/1.1" 200 -
+2025-07-06 17:50:54,095 [INFO] 127.0.0.1 - - [06/Jul/2025 17:50:54] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-06 17:50:59,905 [INFO] User "admin" logged in successfully.
+2025-07-06 17:50:59,906 [INFO] 127.0.0.1 - - [06/Jul/2025 17:50:59] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-06 17:50:59,911 [INFO] 127.0.0.1 - - [06/Jul/2025 17:50:59] "GET / HTTP/1.1" 200 -
+2025-07-06 17:50:59,940 [INFO] 127.0.0.1 - - [06/Jul/2025 17:50:59] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-06 17:50:59,944 [INFO] 127.0.0.1 - - [06/Jul/2025 17:50:59] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-07-06 17:50:59,982 [INFO] 127.0.0.1 - - [06/Jul/2025 17:50:59] "[33mGET /api/catalogues/ HTTP/1.1[0m" 404 -
+2025-07-06 17:51:15,335 [INFO] 192.168.1.4 - - [06/Jul/2025 17:51:15] "[32mGET / HTTP/1.1[0m" 302 -
+2025-07-06 17:51:15,349 [INFO] 192.168.1.4 - - [06/Jul/2025 17:51:15] "GET /login HTTP/1.1" 200 -
+2025-07-06 17:51:15,373 [INFO] 192.168.1.4 - - [06/Jul/2025 17:51:15] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-06 17:51:20,489 [INFO] User "admin" logged in successfully.
+2025-07-06 17:51:20,489 [INFO] 192.168.1.4 - - [06/Jul/2025 17:51:20] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-06 17:51:20,494 [INFO] 192.168.1.4 - - [06/Jul/2025 17:51:20] "GET / HTTP/1.1" 200 -
+2025-07-06 17:51:20,523 [INFO] 192.168.1.4 - - [06/Jul/2025 17:51:20] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-06 17:51:20,530 [INFO] 192.168.1.4 - - [06/Jul/2025 17:51:20] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-07-06 17:51:20,553 [INFO] User "admin" fetched all catalogues.
+2025-07-06 17:51:20,568 [INFO] 192.168.1.4 - - [06/Jul/2025 17:51:20] "GET /api/catalogues HTTP/1.1" 200 -
+2025-07-06 17:51:26,358 [INFO] User "admin" logged out.
+2025-07-06 17:51:26,359 [INFO] 192.168.1.4 - - [06/Jul/2025 17:51:26] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-07-06 17:51:26,366 [INFO] 192.168.1.4 - - [06/Jul/2025 17:51:26] "GET /login HTTP/1.1" 200 -
+2025-07-06 17:51:26,398 [INFO] 192.168.1.4 - - [06/Jul/2025 17:51:26] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-06 17:51:32,266 [INFO] User "admin" logged out.
+2025-07-06 17:51:32,267 [INFO] 127.0.0.1 - - [06/Jul/2025 17:51:32] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-07-06 17:51:32,274 [INFO] 127.0.0.1 - - [06/Jul/2025 17:51:32] "GET /login HTTP/1.1" 200 -
+2025-07-06 17:51:32,300 [INFO] 127.0.0.1 - - [06/Jul/2025 17:51:32] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-06 17:54:19,198 [ERROR] Login error for user "admin": Invalid password.
+Traceback (most recent call last):
+  File "c:\Users\hp\Desktop\E-Commerce website manager\Catalogue_Manager\app.py", line 198, in login
+    if auth_service.authenticate(username, password):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\hp\Desktop\E-Commerce website manager\Catalogue_Manager\service\authentication_service.py", line 22, in authenticate
+    raise AuthenticationError("Invalid password.")
+exceptions.exceptions.AuthenticationError: Invalid password.
+2025-07-06 17:54:19,201 [INFO] 192.168.1.4 - - [06/Jul/2025 17:54:19] "POST /login HTTP/1.1" 200 -
+2025-07-06 17:54:19,221 [INFO] 192.168.1.4 - - [06/Jul/2025 17:54:19] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-06 17:54:25,587 [INFO] User "admin" logged in successfully.
+2025-07-06 17:54:25,588 [INFO] 192.168.1.4 - - [06/Jul/2025 17:54:25] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-06 17:54:25,592 [INFO] 192.168.1.4 - - [06/Jul/2025 17:54:25] "GET / HTTP/1.1" 200 -
+2025-07-06 17:54:25,614 [INFO] 192.168.1.4 - - [06/Jul/2025 17:54:25] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-06 17:54:25,616 [INFO] 192.168.1.4 - - [06/Jul/2025 17:54:25] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-07-06 17:54:25,631 [INFO] User "admin" fetched all catalogues.
+2025-07-06 17:54:25,641 [INFO] 192.168.1.4 - - [06/Jul/2025 17:54:25] "GET /api/catalogues HTTP/1.1" 200 -
+2025-07-06 17:54:30,288 [INFO] User "admin" logged out.
+2025-07-06 17:54:30,289 [INFO] 192.168.1.4 - - [06/Jul/2025 17:54:30] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-07-06 17:54:30,294 [INFO] 192.168.1.4 - - [06/Jul/2025 17:54:30] "GET /login HTTP/1.1" 200 -
+2025-07-06 17:54:30,325 [INFO] 192.168.1.4 - - [06/Jul/2025 17:54:30] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-06 17:54:36,704 [INFO] 127.0.0.1 - - [06/Jul/2025 17:54:36] "[32mGET / HTTP/1.1[0m" 302 -
+2025-07-06 17:54:36,712 [INFO] 127.0.0.1 - - [06/Jul/2025 17:54:36] "GET /login HTTP/1.1" 200 -
+2025-07-06 17:54:36,738 [INFO] 127.0.0.1 - - [06/Jul/2025 17:54:36] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-06 17:57:27,017 [INFO] User "admin" logged in successfully.
+2025-07-06 17:57:27,018 [INFO] 127.0.0.1 - - [06/Jul/2025 17:57:27] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-06 17:57:27,022 [INFO] 127.0.0.1 - - [06/Jul/2025 17:57:27] "GET / HTTP/1.1" 200 -
+2025-07-06 17:57:27,051 [INFO] 127.0.0.1 - - [06/Jul/2025 17:57:27] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-06 17:57:27,054 [INFO] 127.0.0.1 - - [06/Jul/2025 17:57:27] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-07-06 17:57:27,206 [INFO] 127.0.0.1 - - [06/Jul/2025 17:57:27] "[33mGET /api/catalogues/ HTTP/1.1[0m" 404 -
+2025-07-06 17:57:30,263 [INFO] 127.0.0.1 - - [06/Jul/2025 17:57:30] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-06 17:57:30,276 [INFO] 127.0.0.1 - - [06/Jul/2025 17:57:30] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-07-06 17:59:29,260 [INFO]  * Detected change in 'c:\\Users\\hp\\Desktop\\E-Commerce website manager\\Catalogue_Manager\\app.py', reloading
+2025-07-06 17:59:29,323 [INFO]  * Restarting with stat
+2025-07-06 17:59:29,619 [WARNING]  * Debugger is active!
+2025-07-06 17:59:29,622 [INFO]  * Debugger PIN: 918-996-638
+2025-07-06 17:59:30,640 [INFO]  * Detected change in 'c:\\Users\\hp\\Desktop\\E-Commerce website manager\\Catalogue_Manager\\app.py', reloading
+2025-07-06 17:59:30,694 [INFO]  * Restarting with stat
+2025-07-06 17:59:30,983 [WARNING]  * Debugger is active!
+2025-07-06 17:59:30,987 [INFO]  * Debugger PIN: 918-996-638
+2025-07-06 18:00:57,663 [INFO] 127.0.0.1 - - [06/Jul/2025 18:00:57] "GET / HTTP/1.1" 200 -
+2025-07-06 18:00:57,685 [INFO] 127.0.0.1 - - [06/Jul/2025 18:00:57] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-07-06 18:00:57,766 [INFO] 127.0.0.1 - - [06/Jul/2025 18:00:57] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-06 18:00:57,775 [INFO] 127.0.0.1 - - [06/Jul/2025 18:00:57] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-07-06 18:00:57,849 [INFO] User "admin" fetched all catalogues.
+2025-07-06 18:00:57,968 [INFO] 127.0.0.1 - - [06/Jul/2025 18:00:57] "GET /api/catalogues/ HTTP/1.1" 200 -
+2025-07-06 18:01:03,288 [INFO] User "admin" fetched catalogue with ID 1.
+2025-07-06 18:01:03,288 [INFO] 127.0.0.1 - - [06/Jul/2025 18:01:03] "GET /api/catalogues/1 HTTP/1.1" 200 -
+2025-07-06 18:01:15,444 [INFO] User "admin" updated catalogue ID 1.
+2025-07-06 18:01:15,444 [INFO] 127.0.0.1 - - [06/Jul/2025 18:01:15] "PUT /api/catalogues/1 HTTP/1.1" 200 -
+2025-07-06 18:01:17,148 [INFO] User "admin" fetched all catalogues.
+2025-07-06 18:01:17,158 [INFO] 127.0.0.1 - - [06/Jul/2025 18:01:17] "GET /api/catalogues/ HTTP/1.1" 200 -
+2025-07-06 18:01:29,381 [INFO] User "admin" logged out.
+2025-07-06 18:01:29,382 [INFO] 127.0.0.1 - - [06/Jul/2025 18:01:29] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-07-06 18:01:29,392 [INFO] 127.0.0.1 - - [06/Jul/2025 18:01:29] "GET /login HTTP/1.1" 200 -
+2025-07-06 18:01:29,421 [INFO] 127.0.0.1 - - [06/Jul/2025 18:01:29] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-06 18:01:32,512 [INFO] 127.0.0.1 - - [06/Jul/2025 18:01:32] "[32mGET / HTTP/1.1[0m" 302 -
+2025-07-06 18:01:32,519 [INFO] 127.0.0.1 - - [06/Jul/2025 18:01:32] "GET /login HTTP/1.1" 200 -
+2025-07-06 18:01:32,544 [INFO] 127.0.0.1 - - [06/Jul/2025 18:01:32] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-06 18:01:37,920 [INFO] User "admin" logged in successfully.
+2025-07-06 18:01:37,920 [INFO] 127.0.0.1 - - [06/Jul/2025 18:01:37] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-06 18:01:37,925 [INFO] 127.0.0.1 - - [06/Jul/2025 18:01:37] "GET / HTTP/1.1" 200 -
+2025-07-06 18:01:37,951 [INFO] 127.0.0.1 - - [06/Jul/2025 18:01:37] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-07-06 18:01:37,956 [INFO] 127.0.0.1 - - [06/Jul/2025 18:01:37] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-07-06 18:01:38,022 [INFO] User "admin" fetched all catalogues.
+2025-07-06 18:01:38,035 [INFO] 127.0.0.1 - - [06/Jul/2025 18:01:38] "GET /api/catalogues/ HTTP/1.1" 200 -
+2025-07-06 18:01:48,390 [INFO] User "admin" logged out.
+2025-07-06 18:01:48,391 [INFO] 127.0.0.1 - - [06/Jul/2025 18:01:48] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-07-06 18:01:48,398 [INFO] 127.0.0.1 - - [06/Jul/2025 18:01:48] "GET /login HTTP/1.1" 200 -
+2025-07-06 18:01:48,426 [INFO] 127.0.0.1 - - [06/Jul/2025 18:01:48] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
