@@ -61,32 +61,26 @@ Catalogue_Manager/
 
 # 🧑‍💻 Setup Instructions
 ### 1️⃣ Clone the Repository
-bash
-Copy
-Edit
 git clone https://github.com/Abinshah7777/E-Commerce-Catalogue-Manager.git
 cd E-Commerce-Catalogue-Manager
+
 ### 2️⃣ Create a Virtual Environment (Optional but Recommended)
-bash
-Copy
-Edit
+
 python -m venv venv
 Activate it:
-
-''' bash
-Copy
-Edit
 ### On Windows
+
 venv\Scripts\activate
 
 ### On macOS/Linux
+
 source venv/bin/activate
+
 ### 3️⃣ Install Dependencies
-bash
-Copy
-Edit
+
 pip install -r requirements.txt
 ### 4️⃣ Set Up MySQL Database
+
 Make sure MySQL is installed and running on your system.
 
 Create a new database (e.g., catalogue_db)
@@ -97,10 +91,8 @@ Run any initial SQL if needed (your app may auto-create tables)
 
 Example SQL:
 
-sql
-Copy
-Edit
 CREATE DATABASE catalogue_db;
+
 Example DB Config in app.py:
 
 python
@@ -110,15 +102,16 @@ mysql_host = 'localhost'
 mysql_user = 'root'
 mysql_password = 'yourpassword'
 mysql_db = 'catalogue_db'
+
 ### 5️⃣ Run the Flask App
-bash
-Copy
-Edit
+
 python app.py
 Then open your browser and go to:
+
 http://127.0.0.1:5000
 
 # 🔐 Login Credentials
+
 Use the following credentials to log in:
 
 Username: admin
@@ -128,6 +121,7 @@ Password: admin123
 These can be changed in the database or authentication service code.
 
 # 🧪 Usage
+
 Once logged in:
 
 ➕ Add a new catalogue
@@ -143,6 +137,7 @@ Once logged in:
 All actions are done without reloading the page using JavaScript Fetch API.
 
 # 📝 Notes
+
 All data is managed through JSON APIs
 
 The frontend dynamically updates using JavaScript
@@ -154,5 +149,6 @@ Input validation is handled in util/validators.py
 Graceful error handling is managed using custom exceptions
 
 # 👨‍💻 Author
+
 Abinshah PM
 GitHub: @Abinshah7777
