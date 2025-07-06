@@ -1,3 +1,4 @@
+
 import logging
 from datetime import datetime
 from flask import Flask, request, jsonify, render_template, redirect, url_for, session
@@ -6,7 +7,7 @@ from dto.catalogue_dto import Catalogue
 from service.authentication_service import AuthenticationService
 from exceptions.exceptions import CatalogueNotFoundError, InvalidCatalogueInputError, InvalidCredentialsError, CatalogueAlreadyExistsError
 import os
-import logging
+
 
 # ✅ Ensure the logs directory exists
 os.makedirs('logs', exist_ok=True)
