@@ -82,7 +82,7 @@ Catalogue_Manager/
 # 🧑‍💻 Setup Instructions
 ### 1️⃣ Clone the Repository
 git clone https://github.com/Abinshah7777/E-Commerce-Catalogue-Manager.git
-cd E-Commerce-Catalogue-Manager
+
 
 ### 2️⃣ Create a Virtual Environment (Optional but Recommended)
 
