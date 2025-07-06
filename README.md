@@ -1,93 +1,155 @@
-# E-Commerce Catalogue Manager
+# 🛍️ E-Commerce Catalogue Manager
 
-This is a simple web application for managing e-commerce catalogues. It allows users to perform standard CRUD (Create, Read, Update, Delete) operations through a user-friendly web interface using Flask and JavaScript (Fetch API).
+A full-stack web application to manage e-commerce catalogues with secure login, MySQL database integration, and dynamic front-end interaction using JavaScript's Fetch API.
 
-## Features
+---
 
-- **Create Catalogue:** Add new catalogue entries with details like name, start date, end date, and active status.
-- **View All Catalogues:** Display a list of all existing catalogues in a tabular format.
-- **View Catalogue by ID:** Retrieve and display details for a specific catalogue using its unique ID.
-- **Update Catalogue by ID:** Modify the details of an existing catalogue.
-- **Delete Catalogue by ID:** Remove a catalogue entry from the system.
+## 🚀 Features
 
-## Technologies Used
+- 🔐 User Authentication (Login + Logout)
+- 🆕 Create a new catalogue
+- 📄 View all catalogues
+- 🔍 Search by ID or Name (live filtering)
+- 🧾 View by ID using the search bar
+- ✏️ Update catalogue (inline)
+- ❌ Delete catalogue (inline)
+- ⚙️ Clean modular structure (DTOs, Services, Validators, Exceptions)
 
-- **Backend:** Flask (Python web framework)
-- **Frontend:** HTML5, CSS3, JavaScript (Fetch API for asynchronous communication)
-- **Architecture:** Modular OOP design with service layers, DTOs, and custom exceptions
-- **Data Handling:** In-memory storage (no database)
-- **Version Control:** Git & GitHub
+---
+
+## 🛠️ Technologies Used
+
+| Layer        | Tech Stack                         |
+|--------------|------------------------------------|
+| Backend      | Flask (Python)                     |
+| Frontend     | HTML5, CSS3, JavaScript (Fetch API)|
+| Database     | MySQL                              |
+| Architecture | Modular OOP + Service Layer        |
+| Other        | Session-based auth, Custom logging |
+
+---
 
 ## 📁 Project Structure
 
-```
-E-Commerce-Catalogue-Manager/
+Catalogue_Manager/
 │
-├── app.py                  # Main Flask application
-│
-├── templates/
-│   └── index.html          # Frontend HTML interface
-│
-├── static/
-│   └── js/
-│       └── main.js         # JavaScript for Fetch API interaction
-│
+├── app.py # Main Flask app
+├── config/ # DB or config (if applicable)
 ├── dto/
-│   └── catalogue_dto.py    # Catalogue class definition (DTO)
-│
-├── service/
-│   └── catalogue_service.py # Business logic for catalogue management
-│
+│ └── catalogue_dto.py # DTO for Catalogue
 ├── exceptions/
-│   └── exceptions.py       # Custom error classes
-│
+│ └── exceptions.py # Custom exception classes
+├── logs/
+│ └── app.log # Application logs
+├── service/
+│ ├── authentication_service.py
+│ └── catalogue_service.py # Business logic layer
+├── static/
+│ └── js/ # JavaScript (Fetch API logic)
+├── templates/
+│ ├── index.html # Frontend page
+│ └── login.html # Login page
 ├── util/
-│   └── validators.py       # Input validation functions
-│
-├── requirements.txt        # Python package requirements
-└── README.md               # Project documentation
-```
+│ └── validators.py # Input validation helpers
+├── tests/ # (Optional) Test scripts
+├── requirements.txt # Python dependencies
+└── README.md # Project documentation
 
+yaml
+Copy
+Edit
 
-## Setup Instructions
+---
 
-To run this project locally on your system:
+## 🧑‍💻 Setup Instructions
 
-1. **Clone the Repository:**
-    ```bash
-    git clone https://github.com/Abinshah7777/E-Commerce-Catalogue-Manager.git
-    cd E-Commerce-Catalogue-Manager
-    ```
+### 1️⃣ Clone the repository
+```bash
+git clone https://github.com/Abinshah7777/E-Commerce-Catalogue-Manager.git
+cd E-Commerce-Catalogue-Manager
+2️⃣ Create virtual environment (optional but recommended)
+bash
+Copy
+Edit
+python -m venv venv
+# Windows
+venv\Scripts\activate
+# macOS/Linux
+source venv/bin/activate
+3️⃣ Install dependencies
+bash
+Copy
+Edit
+pip install -r requirements.txt
+4️⃣ Set up MySQL Database
+Make sure MySQL is installed and running on your system.
 
-2. **Install Python Dependencies:**
-    ```bash
-    pip install -r requirements.txt
-    ```
+Create a new database (e.g., catalogue_db)
 
-3. **Run the Flask Application:**
-    ```bash
-    python app.py
-    ```
-    The application will typically run on:  
-    [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
+Update DB connection settings inside your config file or app.py if hardcoded.
 
-## Usage
+Run any initial SQL to create tables if needed (or your app auto-creates them)
 
-1. Open your browser and go to [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
-2. Use the buttons provided to:
-    - Create a new catalogue
-    - View a specific catalogue using its ID
-    - Update or delete a catalogue by ID
-    - View all catalogues at once
-3. The interface will display all results directly on the page, and success or error messages will appear at the top.
+Example MySQL:
 
-## Notes
+sql
+Copy
+Edit
+CREATE DATABASE catalogue_db;
+🔧 Configure your MySQL credentials inside your code (app.py or config).
 
-- This version does **not** include category support or database integration.
-- All data is stored in memory during runtime — restarting the app will reset all data.
-- Input validation is handled using utility functions and custom exceptions for cleaner error handling.
+python
+Copy
+Edit
+mysql_host = 'localhost'
+mysql_user = 'root'
+mysql_password = 'yourpassword'
+mysql_db = 'catalogue_db'
+5️⃣ Run the Flask app
+bash
+Copy
+Edit
+python app.py
+The app should now be live at:
+📡 http://127.0.0.1:5000
 
-## Author
+🔐 Login Credentials
+Use the following to log in:
 
-**Abinshah PM**  
-GitHub: [Abinshah7777](https://github.com/Abinshah7777)
+Username: admin
+
+Password: admin123
+
+(These can be updated via the authentication service or database)
+
+🧪 Usage
+Go to http://127.0.0.1:5000
+
+Log in using the credentials above.
+
+You can now:
+
+➕ Add new catalogue
+
+🔍 Search catalogue by ID or Name
+
+✏️ Update or 🗑️ Delete from the catalogue list
+
+📜 View all catalogues inline
+
+All actions happen dynamically via JavaScript (Fetch API).
+
+📝 Notes
+All interactions are through JSON APIs.
+
+Frontend dynamically updates without reloading the page.
+
+Logs are stored in logs/app.log
+
+Input validation is handled via util/validators.py
+
+Custom exceptions provide graceful error handling
+
+👨‍💻 Author
+Abinshah PM
+GitHub: @Abinshah7777
