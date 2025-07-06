@@ -6,7 +6,6 @@ from dto.catalogue_dto import Catalogue
 from service.authentication_service import AuthenticationService
 from exceptions.exceptions import CatalogueNotFoundError, InvalidCatalogueInputError, InvalidCredentialsError, CatalogueAlreadyExistsError
 import os
-import logging
 
 # ✅ Ensure the logs directory exists
 os.makedirs('logs', exist_ok=True)
