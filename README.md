@@ -59,44 +59,50 @@ Catalogue_Manager/
 ├── .gitignore                # Git ignore file
 └── README.md                 # Project documentation
 
-🧑‍💻 Setup Instructions
-1️⃣ Clone the repository
+# 🧑‍💻 Setup Instructions
+### 1️⃣ Clone the Repository
 bash
 Copy
 Edit
 git clone https://github.com/Abinshah7777/E-Commerce-Catalogue-Manager.git
 cd E-Commerce-Catalogue-Manager
-2️⃣ Create virtual environment (optional but recommended)
+### 2️⃣ Create a Virtual Environment (Optional but Recommended)
 bash
 Copy
 Edit
 python -m venv venv
+Activate it:
 
+''' bash
+Copy
+Edit
 # On Windows
 venv\Scripts\activate
 
 # On macOS/Linux
 source venv/bin/activate
-3️⃣ Install dependencies
+### 3️⃣ Install Dependencies
 bash
 Copy
 Edit
 pip install -r requirements.txt
-4️⃣ Set up MySQL Database
-💡 Make sure MySQL is installed and running on your system.
+### 4️⃣ Set Up MySQL Database
+Make sure MySQL is installed and running on your system.
 
 Create a new database (e.g., catalogue_db)
 
-Update DB connection settings inside your app.py or config file
+Update the DB connection settings in app.py or your config module
 
-Run any SQL script to initialize tables, if needed (or your app auto-creates them)
+Run any initial SQL if needed (your app may auto-create tables)
 
-Example MySQL command:
+Example SQL:
+
 sql
 Copy
 Edit
 CREATE DATABASE catalogue_db;
-Configure your MySQL credentials inside your code:
+Example DB Config in app.py:
+
 python
 Copy
 Edit
@@ -104,53 +110,49 @@ mysql_host = 'localhost'
 mysql_user = 'root'
 mysql_password = 'yourpassword'
 mysql_db = 'catalogue_db'
-5️⃣ Run the Flask app
+### 5️⃣ Run the Flask App
 bash
 Copy
 Edit
 python app.py
-The app should now be live at:
-📡 http://127.0.0.1:5000
+Then open your browser and go to:
+http://127.0.0.1:5000
 
-🔐 Login Credentials
+# 🔐 Login Credentials
 Use the following credentials to log in:
 
 Username: admin
 
 Password: admin123
 
-These can be updated inside the authentication service or in your database.
+These can be changed in the database or authentication service code.
 
-🧪 Usage
-Open your browser and go to: http://127.0.0.1:5000
-
-Log in using the provided credentials
-
-You can now:
+# 🧪 Usage
+Once logged in:
 
 ➕ Add a new catalogue
 
-🔍 Search by catalogue ID or Name
+🔍 Search by ID or Name using the search bar
 
-✏️ Update catalogues using inline buttons
+✏️ Update a catalogue using the inline update button
 
-🗑️ Delete catalogues using inline buttons
+🗑️ Delete a catalogue using the inline delete button
 
-📜 View all catalogues in one view
+📜 View all catalogues directly on the homepage
 
-All interactions are dynamic and happen via JavaScript Fetch API (no page reloads).
+All actions are done without reloading the page using JavaScript Fetch API.
 
-📝 Notes
-All data exchange happens via JSON APIs
+# 📝 Notes
+All data is managed through JSON APIs
 
-No page reloads: frontend updates dynamically
+The frontend dynamically updates using JavaScript
 
-Logs are stored in logs/app.log
+Application logs are saved to logs/app.log
 
-Input validation is handled through util/validators.py
+Input validation is handled in util/validators.py
 
-Custom exceptions ensure clear error handling and cleaner code
+Graceful error handling is managed using custom exceptions
 
-👨‍💻 Author
+# 👨‍💻 Author
 Abinshah PM
 GitHub: @Abinshah7777
