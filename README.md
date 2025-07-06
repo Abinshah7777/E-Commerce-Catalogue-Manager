@@ -87,7 +87,8 @@ git clone https://github.com/Abinshah7777/E-Commerce-Catalogue-Manager.git
 ### 2️⃣ Create a Virtual Environment (Optional but Recommended)
 
 python -m venv venv
-Activate it:
+
+### Activate it:
 ### On Windows
 
 venv\Scripts\activate
