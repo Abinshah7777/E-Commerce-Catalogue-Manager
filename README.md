@@ -27,38 +27,44 @@ A full-stack web application to manage e-commerce catalogues with secure login, 
 | Architecture | Modular OOP + Service Layer        |
 | Other        | Session-based auth, Custom logging |
 
-📁 Project Structure
-php
-Copy
-Edit
+# 📁 Project Structure
+
 Catalogue_Manager/
-├── app.py                    # Main Flask app
+├── api/
+│   └── catalogue_api.py
+├── config/
+│   └── config.ini
 ├── dto/
-│   └── catalogue_dto.py      # DTO for Catalogue
+│   ├── __init__.py
+│   └── catalogue_dto.py
 ├── exceptions/
 │   ├── __init__.py
-│   └── exceptions.py         # Custom exception classes
-├── logs/
-│   └── app.log               # Application logs
+│   └── exceptions.py
 ├── service/
 │   ├── __init__.py
 │   ├── authentication_service.py
-│   └── catalogue_service.py  # Business logic layer
+│   └── catalogue_service.py
 ├── static/
 │   ├── css/
-│   │   └── style.css         # Stylesheet for the frontend
+│   │   └── style.css
 │   └── js/
-│       └── main.js           # JavaScript (Fetch API logic)
+│       └── main.js
 ├── templates/
-│   ├── index.html            # Main frontend page
-│   └── login.html            # Login page
+│   ├── index.html
+│   └── login.html
 ├── util/
-│   └── validators.py         # Input validation helpers
-├── tests/                    # (Optional) Unit tests
-├── requirements.txt          # Python dependencies
-├── .gitignore                # Git ignore file
-└── README.md                 # Project documentation
-
+│   ├── __init__.py
+│   ├── db_get_connection.py
+│   └── validators.py
+├── logs/
+│   └── app.log
+├── tests/
+│   ├── __init__.py
+│   └── test_catalogue.py
+├── .gitignore
+├── app.py
+├── requirements.txt
+└── README.md
 # 🧑‍💻 Setup Instructions
 ### 1️⃣ Clone the Repository
 git clone https://github.com/Abinshah7777/E-Commerce-Catalogue-Manager.git
@@ -83,7 +89,7 @@ pip install -r requirements.txt
 
 Make sure MySQL is installed and running on your system.
 
-Create a new database (e.g., catalogue_db)
+Create a new database 
 
 Update the DB connection settings in app.py or your config module
 
@@ -92,16 +98,6 @@ Run any initial SQL if needed (your app may auto-create tables)
 Example SQL:
 
 CREATE DATABASE catalogue_db;
-
-Example DB Config in app.py:
-
-python
-Copy
-Edit
-mysql_host = 'localhost'
-mysql_user = 'root'
-mysql_password = 'yourpassword'
-mysql_db = 'catalogue_db'
 
 ### 5️⃣ Run the Flask App
 
