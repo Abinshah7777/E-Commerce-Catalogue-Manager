@@ -25,7 +25,7 @@ logging.basicConfig(
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
-app.url_map.strict_slashes = False
+app.url_map.strict_slashes = False 
 
 service = CatalogueService()
 auth_service = AuthenticationService()
