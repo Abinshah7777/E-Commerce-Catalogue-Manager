@@ -28,7 +28,7 @@ A full-stack web application to manage e-commerce catalogues with secure login, 
 | Other        | Session-based auth, Custom logging |
 
 # 📁 Project Structure
-
+```
 Catalogue_Manager/
 ├── app.py                    # Main Flask app entry point
 ├── requirements.txt          # Python dependencies
@@ -75,7 +75,7 @@ Catalogue_Manager/
 ├── tests/
 │   ├── __init__.py
 │   └── test_catalogue.py     # Unit tests
-
+```
 
 
 
