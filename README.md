@@ -27,6 +27,10 @@ A full-stack web application to manage e-commerce catalogues with secure login, 
 | Architecture | Modular OOP + Service Layer        |
 | Other        | Session-based auth, Custom logging |
 
+📁 Project Structure
+php
+Copy
+Edit
 Catalogue_Manager/
 ├── app.py                    # Main Flask app
 ├── dto/
@@ -55,14 +59,13 @@ Catalogue_Manager/
 ├── .gitignore                # Git ignore file
 └── README.md                 # Project documentation
 
-
 ## 🧑‍💻 Setup Instructions
 
 ### 1️⃣ Clone the repository
 ```bash
 git clone https://github.com/Abinshah7777/E-Commerce-Catalogue-Manager.git
 cd E-Commerce-Catalogue-Manager
-2️⃣ Create virtual environment (optional but recommended)
+### 2️⃣ Create virtual environment (optional but recommended)
 bash
 Copy
 Edit
@@ -71,12 +74,12 @@ python -m venv venv
 venv\Scripts\activate
 # macOS/Linux
 source venv/bin/activate
-3️⃣ Install dependencies
+### 3️⃣ Install dependencies
 bash
 Copy
 Edit
 pip install -r requirements.txt
-4️⃣ Set up MySQL Database
+### 4️⃣ Set up MySQL Database
 Make sure MySQL is installed and running on your system.
 
 Create a new database (e.g., catalogue_db)
@@ -100,7 +103,7 @@ mysql_host = 'localhost'
 mysql_user = 'root'
 mysql_password = 'yourpassword'
 mysql_db = 'catalogue_db'
-5️⃣ Run the Flask app
+### 5️⃣ Run the Flask app
 bash
 Copy
 Edit
