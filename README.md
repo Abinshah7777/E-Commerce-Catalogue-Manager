@@ -30,51 +30,41 @@ A full-stack web application to manage e-commerce catalogues with secure login, 
 # 📁 Project Structure
 
 Catalogue_Manager/
-├── app.py                        # Main Flask app entry point
-├── requirements.txt              # Python dependencies
-├── .gitignore                    # Git ignore rules
-├── README.md                     # Project documentation
-
+├── app.py                    # Main Flask app entry point
+├── requirements.txt          # Python dependencies
+├── .gitignore                # Git ignore rules
+├── README.md                 # Project documentation
 ├── api/
-│   └── catalogue_api.py          # JSON API routes
-
+│   └── catalogue_api.py      # JSON API routes
 ├── config/
-│   └── config.ini                # MySQL and app configurations
-
+│   └── config.ini            # MySQL and app configurations
 ├── dto/
 │   ├── __init__.py
-│   └── catalogue_dto.py          # Data Transfer Object for Catalogue
-
+│   └── catalogue_dto.py      # DTO for Catalogue objects
 ├── exceptions/
 │   ├── __init__.py
-│   └── exceptions.py             # Custom exceptions
-
+│   └── exceptions.py         # Custom exception classes
 ├── service/
 │   ├── __init__.py
 │   ├── authentication_service.py
-│   └── catalogue_service.py      # Business logic layer
-
+│   └── catalogue_service.py  # Business logic layer
 ├── static/
 │   ├── css/
-│   │   └── style.css             # Stylesheet for the frontend
+│   │   └── style.css         # Frontend styles
 │   └── js/
-│       └── main.js               # JavaScript using Fetch API
-
+│       └── main.js           # JavaScript (Fetch API logic)
 ├── templates/
-│   ├── index.html                # Main UI
-│   └── login.html                # Login page
-
+│   ├── index.html            # Main UI
+│   └── login.html            # Login page
 ├── util/
 │   ├── __init__.py
-│   ├── db_get_connection.py      # DB connection utility
-│   └── validators.py             # Input validation logic
-
+│   ├── db_get_connection.py  # MySQL connection helper
+│   └── validators.py         # Input validation
 ├── logs/
-│   └── app.log                   # Application logs
-
+│   └── app.log               # Application logs
 ├── tests/
 │   ├── __init__.py
-│   └── test_catalogue.py         # Unit tests
+│   └── test_catalogue.py     # Unit tests
 
 
 # 🧑‍💻 Setup Instructions
