@@ -129,7 +129,7 @@ Username: admin
 
 Password: admin123
 
-These can be changed in the database or authentication service code.
+
 
 # 🧪 Usage
 
