@@ -129,6 +129,23 @@ Username: admin
 
 Password: admin123
 
+# 📘 API Documentation
+This project includes interactive API documentation using Swagger UI via Flask-RestX.
+
+### 🔗 Access the API docs here:
+```
+
+http://192.168.1.4:5000/api/docs
+
+```
+### or if you're running locally:
+```
+http://localhost:5000/api/docs
+
+```
+
+This Swagger UI interface allows you to explore and test all /api/catalogues endpoints.
+
 
 
 # 🧪 Usage
