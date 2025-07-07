@@ -9,6 +9,7 @@ from exceptions.exceptions import CatalogueNotFoundError, InvalidCatalogueInputE
 import os
 
 
+
 #  Ensure the logs directory exists
 os.makedirs('logs', exist_ok=True)
 
