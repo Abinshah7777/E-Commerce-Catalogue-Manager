@@ -1,10 +1,11 @@
 # 🛍️ E-Commerce Catalogue Manager
 
-A full-stack web application to manage e-commerce catalogues with secure login, MySQL database integration, and dynamic front-end interaction using JavaScript's Fetch API.
+A full-stack web application to manage e-commerce catalogues with secure login, MySQL database integration, dynamic frontend using JavaScript's Fetch API, and interactive API documentation powered by Swagger (Flask-RestX).
+
 
 ---
 
-## 🚀 Features
+# 🚀 Features
 
 - 🔐 User Authentication (Login + Logout)
 - 🆕 Create a new catalogue
@@ -14,29 +15,36 @@ A full-stack web application to manage e-commerce catalogues with secure login, 
 - ✏️ Update catalogue (inline)
 - ❌ Delete catalogue (inline)
 - ⚙️ Clean modular structure (DTOs, Services, Validators, Exceptions)
+- 📘 Interactive API Docs with Swagger (via Flask-RestX)
+
 
 ---
 
 ## 🛠️ Technologies Used
 
-| Layer        | Tech Stack                         |
-|--------------|------------------------------------|
-| Backend      | Flask (Python)                     |
-| Frontend     | HTML5, CSS3, JavaScript (Fetch API)|
-| Database     | MySQL                              |
-| Architecture | Modular OOP + Service Layer        |
-| Other        | Session-based auth, Custom logging |
+| Layer        | Tech Stack                                  |
+|--------------|---------------------------------------------|
+| Backend      | Flask (Python), Flask-RestX (Swagger Docs)  |
+| Frontend     | HTML5, CSS3, JavaScript (Fetch API)         |
+| Database     | MySQL                                       |
+| Architecture | Modular OOP + Service Layer                 |
+| Other        | Session-based auth, Custom logging          |
+
 
 # 📁 Project Structure
 ```
 Catalogue_Manager/
-├── app.py                    # Main Flask app entry point
+├── app.py                   # Main Flask app entry point
+
 ├── requirements.txt          # Python dependencies
+
 ├── .gitignore                # Git ignore rules
+
 ├── README.md                 # Project documentation
 
-├── api/
-│   └── catalogue_api.py      # JSON API routes
+├── api/        
+    ├── __init__.py
+│   └── catalogue_routtes.py      # JSON API routes
 
 ├── config/
 │   └── config.ini            # MySQL and app configurations
@@ -121,6 +129,17 @@ Then open your browser and go to:
 
 http://127.0.0.1:5000
 
+### 6️⃣ API Documentation (Swagger UI)
+Swagger UI is available at:
+
+http://127.0.0.1:5000/api/docs
+
+### or if you're running locally:
+
+http://localhost:5000/api/docs
+
+Powered by Flask-RestX.
+
 # 🔐 Login Credentials
 
 Use the following credentials to log in:
@@ -128,7 +147,6 @@ Use the following credentials to log in:
 Username: admin
 
 Password: admin123
-
 
 
 # 🧪 Usage
