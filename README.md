@@ -35,8 +35,9 @@ Catalogue_Manager/
 ├── .gitignore                # Git ignore rules
 ├── README.md                 # Project documentation
 
-├── api/
-│   └── catalogue_api.py      # JSON API routes
+├── api/        
+    ├── __init__.py
+│   └── catalogue_routtes.py      # JSON API routes
 
 ├── config/
 │   └── config.ini            # MySQL and app configurations
