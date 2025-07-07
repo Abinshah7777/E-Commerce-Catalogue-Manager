@@ -1,7 +1,7 @@
-
 import logging
 from datetime import datetime
 from flask import Flask, request, jsonify, render_template, redirect, url_for, session
+from flask_restx import Api
 from service.catalogue_service import CatalogueService
 from dto.catalogue_dto import Catalogue
 from service.authentication_service import AuthenticationService
@@ -26,6 +26,15 @@ logging.basicConfig(
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 app.url_map.strict_slashes = False 
+
+# Flask-RESTX API initialization
+api = Api(app, 
+    version='1.0',
+    title='Catalogue Manager API',
+    description='API documentation for Catalogue Manager',
+    doc='/api/docs/',
+    prefix='/api/v1'
+)
 
 service = CatalogueService()
 auth_service = AuthenticationService()
@@ -228,6 +237,11 @@ def error_response(error_message, status_code=400):
         "success": False,
         "error": error_message
     }), status_code
+
+# Import and register swagger routes
+from api.catalogue_routes import catalogue_ns,auth_ns
+api.add_namespace(catalogue_ns)
+api.add_namespace(auth_ns, path='/api/auth')
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5000, debug=True)

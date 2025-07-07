@@ -53,7 +53,7 @@ def test_create_catalogue(client):
         'catalogue_name': 'Test Catalogue',
         'catalogue_version': 'v1.0',
         'is_cat_active': 1,
-        'catalogue_start': '2025-01-01',
+        'catalogue_start': '2025-09-01',
         'catalogue_end': '2025-12-31'
     })
     assert response.status_code == 201
@@ -72,7 +72,7 @@ def test_update_catalogue(client):
         'catalogue_name': 'Updated Name',
         'catalogue_version': 'v2.0',
         'is_cat_active': 0,
-        'catalogue_start': '2025-02-01',
+        'catalogue_start': '2025-09-01',
         'catalogue_end': '2025-12-31'
     })
     assert response.status_code in [200, 404]
@@ -93,3 +93,34 @@ def test_create_catalogue_missing_fields(client):
     })
     assert response.status_code == 400
     assert b'Invalid input' in response.data
+
+#  Create catalogue with invalid date format
+def test_create_catalogue_invalid_dates(client):
+    login(client)
+    response = client.post('/api/catalogues', json={
+        'catalogue_id': 1001,
+        'catalogue_name': 'Invalid Date Test',
+        'catalogue_version': 'v1.0',
+        'is_cat_active': 1,
+        'catalogue_start': '31-12-2025',  # Invalid format
+        'catalogue_end': '2025-12-31'
+    })
+    assert response.status_code == 400
+    assert b'field types are incorrect' in response.data
+
+
+
+#  Create catalogue with start date after end date
+def test_create_catalogue_start_after_end(client):
+    login(client)
+    response = client.post('/api/catalogues', json={
+        'catalogue_id': 1002,
+        'catalogue_name': 'Date Order Test',
+        'catalogue_version': 'v1.0',
+        'is_cat_active': 1,
+        'catalogue_start': '2025-12-31',
+        'catalogue_end': '2025-01-01'
+    })
+    assert response.status_code == 400
+    assert b'dates must be in the future' in response.data
+
